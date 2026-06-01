@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" font-family="sans-serif">
+  <defs>
+    <linearGradient id="s3bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDFBF6"/><stop offset="1" stop-color="#F6EFE3"/>
+    </linearGradient>
+    <linearGradient id="s3sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCEEF7"/><stop offset="1" stop-color="#EAF6FB"/>
+    </linearGradient>
+    <linearGradient id="s3wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#C8935A"/><stop offset="1" stop-color="#DBA96B"/>
+    </linearGradient>
+    <linearGradient id="s3water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BFDCEC"/><stop offset="1" stop-color="#8BBCD8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="600" height="450" fill="url(#s3bg)"/>
+
+  <!-- === 左半分：浴室 === -->
+  <!-- 浴室背景（タイル風・薄青） -->
+  <rect x="0" y="0" width="295" height="450" fill="#EAF4F8"/>
+  <!-- タイル目地（横） -->
+  <line x1="0" y1="100" x2="295" y2="100" stroke="#BFDCEC" stroke-width="1.5"/>
+  <line x1="0" y1="200" x2="295" y2="200" stroke="#BFDCEC" stroke-width="1.5"/>
+  <line x1="0" y1="300" x2="295" y2="300" stroke="#BFDCEC" stroke-width="1.5"/>
+  <line x1="0" y1="400" x2="295" y2="400" stroke="#BFDCEC" stroke-width="1.5"/>
+  <!-- タイル目地（縦） -->
+  <line x1="60" y1="0" x2="60" y2="450" stroke="#BFDCEC" stroke-width="1.5"/>
+  <line x1="120" y1="0" x2="120" y2="450" stroke="#BFDCEC" stroke-width="1.5"/>
+  <line x1="180" y1="0" x2="180" y2="450" stroke="#BFDCEC" stroke-width="1.5"/>
+  <line x1="240" y1="0" x2="240" y2="450" stroke="#BFDCEC" stroke-width="1.5"/>
+
+  <!-- 浴室窓 -->
+  <rect x="30" y="30" width="120" height="80" rx="5" fill="url(#s3sky)" stroke="#CBB89C" stroke-width="5"/>
+  <line x1="90" y1="30" x2="90" y2="110" stroke="#CBB89C" stroke-width="5"/>
+
+  <!-- 湯船（木目） -->
+  <rect x="30" y="240" width="240" height="140" rx="14" fill="url(#s3wood)" stroke="#B07840" stroke-width="5"/>
+  <!-- 湯船内側 -->
+  <rect x="42" y="255" width="216" height="110" rx="10" fill="url(#s3water)"/>
+  <!-- お湯の波紋 -->
+  <ellipse cx="150" cy="295" rx="60" ry="10" fill="#DCEEF7" opacity=".6"/>
+  <ellipse cx="150" cy="320" rx="80" ry="8" fill="#DCEEF7" opacity=".4"/>
+  <!-- 湯気 -->
+  <path d="M100 250 q5 -18 0 -30" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M150 244 q5 -18 0 -30" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M200 250 q5 -18 0 -30" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+
+  <!-- 手すり -->
+  <rect x="18" y="200" width="12" height="80" rx="5" fill="#A09080"/>
+  <rect x="255" y="200" width="12" height="80" rx="5" fill="#A09080"/>
+  <rect x="14" y="196" width="260" height="14" rx="7" fill="#3A7CA5"/>
+
+  <!-- シャワー椅子 -->
+  <rect x="170" y="160" width="80" height="8" rx="3" fill="#A8C8D8"/>
+  <rect x="172" y="168" width="8" height="40" rx="3" fill="#A8C8D8"/>
+  <rect x="240" y="168" width="8" height="40" rx="3" fill="#A8C8D8"/>
+  <rect x="164" y="168" width="14" height="6" rx="2" fill="#8AB0C0"/>
+  <rect x="242" y="168" width="14" height="6" rx="2" fill="#8AB0C0"/>
+
+  <!-- シャワーヘッド -->
+  <path d="M245 80 q0 40 -20 60" stroke="#A09080" stroke-width="5" fill="none"/>
+  <ellipse cx="225" cy="140" rx="12" ry="6" fill="#888" opacity=".7"/>
+
+  <!-- 仕切り線（中央） -->
+  <rect x="293" y="0" width="14" height="450" fill="#D8C0A0"/>
+
+  <!-- === 右半分：送迎車 === -->
+  <!-- 屋外背景（空） -->
+  <rect x="307" y="0" width="293" height="450" fill="url(#s3sky)"/>
+  <!-- 地面 -->
+  <rect x="307" y="330" width="293" height="120" fill="#C8B898"/>
+  <rect x="307" y="330" width="293" height="8" fill="#B8A880"/>
+  <!-- 道路マーク -->
+  <rect x="400" y="338" width="50" height="6" rx="2" fill="#E0D0B0" opacity=".7"/>
+
+  <!-- 遠くの木・植栽 -->
+  <circle cx="340" cy="230" r="32" fill="#86B96B"/>
+  <circle cx="360" cy="215" r="40" fill="#6FA85A"/>
+  <rect x="354" y="255" width="12" height="75" fill="#8B6B4A"/>
+  <circle cx="560" cy="240" r="28" fill="#86B96B"/>
+  <circle cx="575" cy="225" r="36" fill="#7FB069"/>
+  <rect x="568" y="265" width="10" height="65" fill="#8B6B4A"/>
+
+  <!-- 施設建物（背景） -->
+  <rect x="450" y="180" width="130" height="150" rx="5" fill="#F2E8D8" stroke="#CBB89C" stroke-width="4"/>
+  <rect x="465" y="195" width="40" height="50" rx="3" fill="url(#s3sky)" stroke="#CBB89C" stroke-width="3"/>
+  <rect x="520" y="195" width="40" height="50" rx="3" fill="url(#s3sky)" stroke="#CBB89C" stroke-width="3"/>
+
+  <!-- 送迎車（白い車・ミニバン風） -->
+  <!-- 車体 -->
+  <rect x="318" y="258" width="200" height="80" rx="12" fill="#F5F5F5" stroke="#DCDCDC" stroke-width="3"/>
+  <!-- ルーフ（少し丸み） -->
+  <path d="M350 258 q0 -50 40 -55 l80 0 q40 5 40 55 z" fill="#EFEFEF" stroke="#DCDCDC" stroke-width="3"/>
+  <!-- サイドウィンドウ -->
+  <rect x="360" y="215" width="52" height="38" rx="5" fill="#BFDCEC" stroke="#DCDCDC" stroke-width="2" opacity=".85"/>
+  <rect x="418" y="215" width="44" height="38" rx="5" fill="#BFDCEC" stroke="#DCDCDC" stroke-width="2" opacity=".85"/>
+  <!-- フロントガラス -->
+  <path d="M470 258 q0 -48 30 -48 l30 0 q30 0 30 48 z" fill="#BFDCEC" stroke="#DCDCDC" stroke-width="2" opacity=".85"/>
+  <!-- ドア線 -->
+  <line x1="415" y1="258" x2="415" y2="338" stroke="#DCDCDC" stroke-width="2"/>
+  <line x1="472" y1="258" x2="472" y2="338" stroke="#DCDCDC" stroke-width="2"/>
+  <!-- ドアハンドル -->
+  <rect x="425" y="295" width="20" height="6" rx="3" fill="#B0B0B0"/>
+  <!-- ヘッドライト -->
+  <ellipse cx="516" cy="295" rx="12" ry="8" fill="#F4C95B" opacity=".8"/>
+  <!-- テールライト -->
+  <ellipse cx="322" cy="290" rx="8" ry="10" fill="#E8786A" opacity=".8"/>
+  <!-- タイヤ -->
+  <circle cx="360" cy="338" r="22" fill="#555"/>
+  <circle cx="360" cy="338" r="12" fill="#888"/>
+  <circle cx="475" cy="338" r="22" fill="#555"/>
+  <circle cx="475" cy="338" r="12" fill="#888"/>
+  <!-- ブランドロゴ的な青ライン -->
+  <rect x="318" y="310" width="200" height="8" rx="4" fill="#3A7CA5" opacity=".7"/>
+
+  <!-- 雲（空） -->
+  <ellipse cx="390" cy="70" rx="45" ry="22" fill="#fff" opacity=".85"/>
+  <ellipse cx="430" cy="62" rx="34" ry="18" fill="#fff" opacity=".85"/>
+  <ellipse cx="360" cy="75" rx="28" ry="14" fill="#fff" opacity=".85"/>
+  <ellipse cx="540" cy="90" rx="38" ry="18" fill="#fff" opacity=".75"/>
+  <ellipse cx="570" cy="82" rx="28" ry="14" fill="#fff" opacity=".75"/>
+</svg>

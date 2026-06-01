@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" font-family="sans-serif">
+  <defs>
+    <linearGradient id="s1wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDFBF6"/><stop offset="1" stop-color="#F6EFE3"/>
+    </linearGradient>
+    <linearGradient id="s1sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCEEF7"/><stop offset="1" stop-color="#EAF6FB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景：壁 -->
+  <rect width="600" height="450" fill="url(#s1wall)"/>
+  <!-- 床 -->
+  <rect y="310" width="600" height="140" fill="#E7D4BA"/>
+  <rect y="310" width="600" height="10" fill="#D8C0A0"/>
+
+  <!-- 大きな窓（開放感） -->
+  <rect x="160" y="40" width="280" height="200" rx="8" fill="url(#s1sky)" stroke="#CBB89C" stroke-width="8"/>
+  <rect x="295" y="40" width="8" height="200" fill="#CBB89C"/>
+  <rect x="160" y="135" width="280" height="8" fill="#CBB89C"/>
+  <!-- 窓外の緑 -->
+  <circle cx="220" cy="185" r="45" fill="#86B96B"/>
+  <circle cx="280" cy="165" r="55" fill="#6FA85A"/>
+  <circle cx="370" cy="180" r="42" fill="#86B96B"/>
+  <rect x="160" y="220" width="280" height="20" fill="#BFE0C2" opacity=".7"/>
+
+  <!-- 観葉植物 (右奥) -->
+  <rect x="530" y="240" width="14" height="70" fill="#8B6B4A"/>
+  <circle cx="537" cy="222" r="34" fill="#7FB069"/>
+  <circle cx="555" cy="235" r="24" fill="#6FA85A"/>
+  <circle cx="518" cy="238" r="22" fill="#86B96B"/>
+
+  <!-- 丸テーブル -->
+  <ellipse cx="300" cy="375" rx="170" ry="44" fill="#E8A87C"/>
+  <ellipse cx="300" cy="362" rx="170" ry="44" fill="#F2BC92"/>
+
+  <!-- お茶・茶器 -->
+  <ellipse cx="252" cy="360" rx="18" ry="8" fill="#fff" opacity=".9"/>
+  <ellipse cx="300" cy="355" rx="16" ry="7" fill="#fff" opacity=".9"/>
+  <ellipse cx="348" cy="360" rx="18" ry="8" fill="#fff" opacity=".9"/>
+  <!-- 湯気 -->
+  <path d="M252 350 q3 -8 0 -14" stroke="#E8A87C" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M300 344 q3 -8 0 -14" stroke="#E8A87C" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+
+  <!-- 人物A（左・白髪・青服） -->
+  <g>
+    <!-- 体（台形） -->
+    <path d="M110 370 q50 -130 100 0 z" fill="#6FA1C0"/>
+    <!-- 頭 -->
+    <circle cx="160" cy="240" r="46" fill="#F3C9A2"/>
+    <!-- 髪（白髪） -->
+    <path d="M116 236 q44 -62 88 0 q-10 -38 -44 -38 q-34 0 -44 38" fill="#ECEAE6"/>
+    <!-- 目 -->
+    <circle cx="146" cy="242" r="4.5" fill="#5b4636"/>
+    <circle cx="174" cy="242" r="4.5" fill="#5b4636"/>
+    <!-- 口 -->
+    <path d="M150 257 q10 11 20 0" stroke="#b06a4e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- ほお紅 -->
+    <circle cx="136" cy="252" r="7" fill="#F4A6A0" opacity=".55"/>
+    <circle cx="184" cy="252" r="7" fill="#F4A6A0" opacity=".55"/>
+  </g>
+
+  <!-- 人物B（中央・グレー髪・テラコッタ服） -->
+  <g>
+    <path d="M250 370 q50 -130 100 0 z" fill="#D9774B"/>
+    <circle cx="300" cy="238" r="48" fill="#E8B894"/>
+    <path d="M254 234 q46 -66 92 0 q-6 -40 -46 -40 q-40 0 -46 40" fill="#B9B2A8"/>
+    <circle cx="285" cy="240" r="4.8" fill="#5b4636"/>
+    <circle cx="315" cy="240" r="4.8" fill="#5b4636"/>
+    <path d="M288 256 q12 12 24 0" stroke="#b06a4e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <circle cx="273" cy="251" r="7" fill="#F4A6A0" opacity=".55"/>
+    <circle cx="327" cy="251" r="7" fill="#F4A6A0" opacity=".55"/>
+  </g>
+
+  <!-- 人物C（右・茶髪・黄色服） -->
+  <g>
+    <path d="M390 370 q50 -130 100 0 z" fill="#F4C95B"/>
+    <circle cx="440" cy="240" r="46" fill="#F3C9A2"/>
+    <path d="M396 236 q44 -60 88 0 q-8 -36 -44 -36 q-36 0 -44 36" fill="#9C7B5B"/>
+    <circle cx="425" cy="242" r="4.5" fill="#5b4636"/>
+    <circle cx="455" cy="242" r="4.5" fill="#5b4636"/>
+    <path d="M428 257 q12 11 22 0" stroke="#b06a4e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <circle cx="414" cy="252" r="7" fill="#F4A6A0" opacity=".55"/>
+    <circle cx="468" cy="252" r="7" fill="#F4A6A0" opacity=".55"/>
+  </g>
+
+  <!-- 遠景の4人目（奥右の椅子に座る小さい人物） -->
+  <g opacity=".7">
+    <path d="M520 340 q22 -56 44 0 z" fill="#88B0A0"/>
+    <circle cx="542" cy="278" r="20" fill="#F3C9A2"/>
+    <path d="M522 276 q20 -28 40 0 q-4 -16 -20 -16 q-16 0 -20 16" fill="#ECEAE6"/>
+    <circle cx="535" cy="279" r="3" fill="#5b4636"/>
+    <circle cx="549" cy="279" r="3" fill="#5b4636"/>
+    <path d="M537 288 q5 5 10 0" stroke="#b06a4e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- 床の柔らかいハイライト -->
+  <ellipse cx="300" cy="430" rx="260" ry="18" fill="#F0E2CC" opacity=".5"/>
+</svg>

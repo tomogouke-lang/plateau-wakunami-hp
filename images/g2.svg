@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" font-family="sans-serif">
+  <defs>
+    <linearGradient id="g2wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDFBF6"/><stop offset="1" stop-color="#F6EFE3"/>
+    </linearGradient>
+    <linearGradient id="g2sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCEEF7"/><stop offset="1" stop-color="#EAF6FB"/>
+    </linearGradient>
+    <linearGradient id="g2floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAD4B0"/><stop offset="1" stop-color="#D8C0A0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景：壁 -->
+  <rect width="600" height="750" fill="url(#g2wall)"/>
+  <!-- 床 -->
+  <rect y="500" width="600" height="250" fill="url(#g2floor)"/>
+  <rect y="500" width="600" height="10" fill="#D8C0A0"/>
+  <!-- 床板の線 -->
+  <line x1="0" y1="560" x2="600" y2="560" stroke="#C8B090" stroke-width="1.5" opacity=".5"/>
+  <line x1="0" y1="620" x2="600" y2="620" stroke="#C8B090" stroke-width="1.5" opacity=".5"/>
+  <line x1="0" y1="680" x2="600" y2="680" stroke="#C8B090" stroke-width="1.5" opacity=".5"/>
+  <line x1="150" y1="500" x2="150" y2="750" stroke="#C8B090" stroke-width="1" opacity=".4"/>
+  <line x1="300" y1="500" x2="300" y2="750" stroke="#C8B090" stroke-width="1" opacity=".4"/>
+  <line x1="450" y1="500" x2="450" y2="750" stroke="#C8B090" stroke-width="1" opacity=".4"/>
+
+  <!-- 奥の壁（遠近感） -->
+  <rect y="0" width="600" height="20" fill="#FDFBF6"/>
+
+  <!-- 大きな窓（左・天井まで） -->
+  <rect x="30" y="30" width="220" height="400" rx="10" fill="url(#g2sky)" stroke="#CBB89C" stroke-width="8"/>
+  <rect x="136" y="30" width="8" height="400" fill="#CBB89C"/>
+  <rect x="30" y="228" width="220" height="8" fill="#CBB89C"/>
+  <!-- 窓外の緑 -->
+  <circle cx="80" cy="320" r="60" fill="#86B96B"/>
+  <circle cx="138" cy="290" r="78" fill="#6FA85A"/>
+  <circle cx="215" cy="330" r="60" fill="#86B96B"/>
+  <circle cx="250" cy="305" r="48" fill="#9CC77E"/>
+  <rect x="30" y="410" width="220" height="20" fill="#BFE0C2" opacity=".7"/>
+
+  <!-- 大きな窓（右） -->
+  <rect x="350" y="30" width="220" height="400" rx="10" fill="url(#g2sky)" stroke="#CBB89C" stroke-width="8"/>
+  <rect x="456" y="30" width="8" height="400" fill="#CBB89C"/>
+  <rect x="350" y="228" width="220" height="8" fill="#CBB89C"/>
+  <circle cx="395" cy="320" r="58" fill="#86B96B"/>
+  <circle cx="458" cy="290" r="74" fill="#6FA85A"/>
+  <circle cx="528" cy="325" r="56" fill="#86B96B"/>
+  <rect x="350" y="410" width="220" height="20" fill="#BFE0C2" opacity=".7"/>
+
+  <!-- 天井の蛍光灯 -->
+  <rect x="80" y="10" width="160" height="12" rx="5" fill="#F4C95B" opacity=".7"/>
+  <rect x="360" y="10" width="160" height="12" rx="5" fill="#F4C95B" opacity=".7"/>
+  <rect x="80" y="8" width="160" height="6" rx="3" fill="#fff" opacity=".8"/>
+  <rect x="360" y="8" width="160" height="6" rx="3" fill="#fff" opacity=".8"/>
+
+  <!-- 平行棒（左奥） -->
+  <rect x="55" y="430" width="10" height="80" rx="4" fill="#A09080"/>
+  <rect x="170" y="430" width="10" height="80" rx="4" fill="#A09080"/>
+  <rect x="60" y="445" width="10" height="65" rx="4" fill="#A09080"/>
+  <rect x="168" y="445" width="10" height="65" rx="4" fill="#A09080"/>
+  <rect x="48" y="392" width="140" height="12" rx="6" fill="#3A7CA5"/>
+  <rect x="52" y="410" width="132" height="10" rx="5" fill="#2C5F80"/>
+
+  <!-- 訓練器具（エルゴメーター・左中） -->
+  <rect x="60" y="580" width="80" height="60" rx="8" fill="#B0C8D8"/>
+  <rect x="68" y="572" width="64" height="14" rx="5" fill="#A0B8C8"/>
+  <!-- ペダル -->
+  <circle cx="80" cy="638" r="10" fill="#8090A0"/>
+  <circle cx="120" cy="638" r="10" fill="#8090A0"/>
+  <!-- ハンドル -->
+  <path d="M85 580 q-10 -20 -20 -15" stroke="#8090A0" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M115 580 q10 -20 20 -15" stroke="#8090A0" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <!-- 訓練用の椅子（複数並ぶ・右エリア） -->
+  <!-- 椅子1 -->
+  <rect x="380" y="488" width="60" height="8" rx="3" fill="#C8A97A"/>
+  <rect x="382" y="496" width="8" height="50" rx="3" fill="#C8A97A"/>
+  <rect x="430" y="496" width="8" height="50" rx="3" fill="#C8A97A"/>
+  <rect x="376" y="448" width="68" height="44" rx="5" fill="#D9B882"/>
+  <!-- 椅子2 -->
+  <rect x="460" y="488" width="60" height="8" rx="3" fill="#C8A97A"/>
+  <rect x="462" y="496" width="8" height="50" rx="3" fill="#C8A97A"/>
+  <rect x="510" y="496" width="8" height="50" rx="3" fill="#C8A97A"/>
+  <rect x="456" y="448" width="68" height="44" rx="5" fill="#D9B882"/>
+  <!-- 椅子3（遠景・小さく） -->
+  <rect x="320" y="492" width="50" height="7" rx="3" fill="#C8A97A" opacity=".7"/>
+  <rect x="322" y="499" width="6" height="40" rx="3" fill="#C8A97A" opacity=".7"/>
+  <rect x="364" y="499" width="6" height="40" rx="3" fill="#C8A97A" opacity=".7"/>
+
+  <!-- 遠景の人物A（小さく・奥で歩行訓練） -->
+  <g opacity=".65">
+    <path d="M255 510 q22 -58 44 0 z" fill="#6FA1C0"/>
+    <circle cx="277" cy="446" r="20" fill="#F3C9A2"/>
+    <path d="M257 444 q20 -28 40 0 q-4 -16 -20 -16 q-16 0 -20 16" fill="#ECEAE6"/>
+    <circle cx="270" cy="447" r="3" fill="#5b4636"/>
+    <circle cx="284" cy="447" r="3" fill="#5b4636"/>
+    <path d="M272 455 q5 5 10 0" stroke="#b06a4e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- 遠景の人物B（職員） -->
+  <g opacity=".65">
+    <path d="M295 510 q22 -58 44 0 z" fill="#3A7CA5"/>
+    <circle cx="317" cy="446" r="20" fill="#F3C9A2"/>
+    <path d="M297 444 q20 -28 40 0 q-2 -18 -20 -18 q-18 0 -20 18" fill="#4a3b2e"/>
+    <circle cx="310" cy="447" r="3" fill="#3b2e23"/>
+    <circle cx="324" cy="447" r="3" fill="#3b2e23"/>
+    <path d="M312 455 q5 5 10 0" stroke="#b06a4e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- 壁際の観葉植物（大型） -->
+  <rect x="272" y="420" width="18" height="90" fill="#8B6B4A"/>
+  <circle cx="281" cy="398" rx="46" r="46" fill="#7FB069"/>
+  <circle cx="310" cy="412" r="34" fill="#6FA85A"/>
+  <circle cx="250" cy="415" r="30" fill="#86B96B"/>
+
+  <!-- 右下の大型観葉植物 -->
+  <rect x="548" y="600" width="16" height="100" fill="#8B6B4A"/>
+  <circle cx="556" cy="578" r="40" fill="#7FB069"/>
+  <circle cx="578" cy="592" r="28" fill="#6FA85A"/>
+  <circle cx="530" cy="595" r="26" fill="#86B96B"/>
+
+  <!-- 床ハイライト -->
+  <ellipse cx="300" cy="730" rx="280" ry="18" fill="#F0E2CC" opacity=".5"/>
+</svg>

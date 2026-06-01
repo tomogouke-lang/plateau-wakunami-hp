@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" font-family="sans-serif">
+  <defs>
+    <linearGradient id="dwwall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDFBF6"/><stop offset="1" stop-color="#F6EFE3"/>
+    </linearGradient>
+    <linearGradient id="dwtable" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D4A96A"/><stop offset="1" stop-color="#C08850"/>
+    </linearGradient>
+    <linearGradient id="dwrice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FAFAF2"/><stop offset="1" stop-color="#F0EDE0"/>
+    </linearGradient>
+    <linearGradient id="dwmiso" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D48C5A"/><stop offset="1" stop-color="#B87040"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景：壁 -->
+  <rect width="700" height="520" fill="url(#dwwall)"/>
+  <!-- 床（テーブル下） -->
+  <rect y="370" width="700" height="150" fill="#E7D4BA"/>
+  <rect y="370" width="700" height="8" fill="#D8C0A0"/>
+
+  <!-- テーブル面 -->
+  <ellipse cx="350" cy="400" rx="340" ry="80" fill="url(#dwtable)"/>
+  <ellipse cx="350" cy="388" rx="340" ry="80" fill="#E8C080"/>
+  <!-- テーブル縁 -->
+  <ellipse cx="350" cy="388" rx="340" ry="80" fill="none" stroke="#C09050" stroke-width="5"/>
+
+  <!-- テーブルマット（和紙風） -->
+  <ellipse cx="350" cy="375" rx="280" ry="60" fill="#F6EDD8" opacity=".7"/>
+
+  <!-- ===== メインプレート（中央） ===== -->
+  <!-- 大きな和食トレー -->
+  <rect x="155" y="290" width="390" height="130" rx="10" fill="#8B6B4A" opacity=".25"/>
+  <rect x="158" y="285" width="384" height="128" rx="9" fill="#F5ECD8"/>
+  <rect x="160" y="287" width="380" height="124" rx="8" fill="none" stroke="#C8A870" stroke-width="3"/>
+
+  <!-- ご飯茶碗（左） -->
+  <!-- 碗の外形 -->
+  <ellipse cx="235" cy="348" rx="55" ry="20" fill="#D4784A" opacity=".3"/>
+  <path d="M182 330 q0 30 53 32 q53 2 53 -32 q-2 -38 -53 -38 q-51 0 -53 38" fill="#E8896A"/>
+  <ellipse cx="235" cy="292" rx="53" ry="14" fill="#F5ECD8"/>
+  <!-- ご飯 -->
+  <ellipse cx="235" cy="290" rx="46" ry="10" fill="url(#dwrice)"/>
+  <ellipse cx="225" cy="285" rx="14" ry="6" fill="#FAFAF5" opacity=".8"/>
+  <ellipse cx="248" cy="283" rx="10" ry="5" fill="#FAFAF5" opacity=".7"/>
+  <ellipse cx="235" cy="278" rx="18" ry="5" fill="#F8F5E8" opacity=".6"/>
+  <!-- 茶碗の艶 -->
+  <ellipse cx="220" cy="305" rx="12" ry="5" fill="#fff" opacity=".35"/>
+  <!-- 湯気 -->
+  <path d="M218 275 q4 -14 0 -24" stroke="#E8A87C" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M235 268 q4 -14 0 -24" stroke="#E8A87C" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M252 272 q4 -14 0 -24" stroke="#E8A87C" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+
+  <!-- 味噌汁（左から2番目） -->
+  <ellipse cx="330" cy="348" rx="48" ry="16" fill="#B86840" opacity=".3"/>
+  <path d="M284 332 q0 26 46 28 q46 2 46 -28 q-2 -34 -46 -34 q-44 0 -46 34" fill="#C87848"/>
+  <ellipse cx="330" cy="298" rx="46" ry="12" fill="url(#dwmiso)"/>
+  <!-- 汁の表面 -->
+  <ellipse cx="330" cy="296" rx="38" ry="8" fill="#D48C5A" opacity=".6"/>
+  <!-- 具（豆腐・わかめ） -->
+  <rect x="318" y="290" width="14" height="10" rx="2" fill="#FAFAF0" opacity=".85"/>
+  <path d="M340 294 q4 -4 8 0 q2 4 -4 6 q-4 0 -4 -6" fill="#4A7860" opacity=".7"/>
+  <!-- 湯気 -->
+  <path d="M315 290 q4 -16 0 -28" stroke="#D48C5A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".75"/>
+  <path d="M330 284 q5 -16 1 -28" stroke="#D48C5A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".75"/>
+  <path d="M345 288 q5 -16 1 -28" stroke="#D48C5A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".75"/>
+  <!-- 蓋の取っ手 -->
+  <ellipse cx="330" cy="296" rx="8" ry="5" fill="#C87848" opacity=".7"/>
+
+  <!-- メインのお皿（焼き魚・中央） -->
+  <ellipse cx="430" cy="350" rx="65" ry="20" fill="#C8A870" opacity=".25"/>
+  <ellipse cx="430" cy="338" rx="62" ry="16" fill="#F8F0E0"/>
+  <ellipse cx="430" cy="336" rx="58" ry="13" fill="#F4ECD8"/>
+  <!-- 焼き魚（鮭風） -->
+  <path d="M380 336 q10 -20 50 -20 q40 0 50 20 q-10 14 -50 14 q-40 0 -50 -14" fill="#E87840" opacity=".8"/>
+  <!-- 魚の焼き目 -->
+  <path d="M392 326 q30 -8 60 0" stroke="#C05818" stroke-width="2" fill="none" opacity=".5"/>
+  <path d="M396 332 q25 -6 50 0" stroke="#C05818" stroke-width="1.5" fill="none" opacity=".4"/>
+  <!-- 大根おろし -->
+  <ellipse cx="463" cy="332" rx="12" ry="7" fill="#FAFAF5" opacity=".85"/>
+  <!-- レモン -->
+  <ellipse cx="402" cy="338" rx="10" ry="6" fill="#F4C95B" opacity=".85"/>
+
+  <!-- 小鉢（右・副菜） -->
+  <ellipse cx="510" cy="348" rx="42" ry="14" fill="#88B0A0" opacity=".3"/>
+  <path d="M470 334 q0 24 40 25 q40 1 40 -25 q-1 -30 -40 -30 q-39 0 -40 30" fill="#A6C9BB"/>
+  <ellipse cx="510" cy="304" rx="40" ry="11" fill="#88B0A0"/>
+  <!-- 中身（ほうれん草のお浸し風） -->
+  <ellipse cx="510" cy="302" rx="32" ry="7" fill="#5A8A68" opacity=".7"/>
+  <path d="M496 298 q7 -5 14 0 q-2 6 -14 4" fill="#6A9A78" opacity=".6"/>
+  <path d="M512 296 q6 -4 12 0 q-1 5 -12 3" fill="#6A9A78" opacity=".6"/>
+
+  <!-- お箸 -->
+  <rect x="165" y="370" width="260" height="6" rx="3" fill="#8B5A2A" transform="rotate(-5 165 370)"/>
+  <rect x="168" y="380" width="255" height="6" rx="3" fill="#A06A38" transform="rotate(-5 168 380)"/>
+
+  <!-- 緑茶（右端） -->
+  <ellipse cx="580" cy="340" rx="35" ry="12" fill="#7FB069" opacity=".2"/>
+  <path d="M547 328 q0 22 33 23 q33 1 33 -23 q-1 -28 -33 -28 q-32 0 -33 28" fill="#9CC77E" opacity=".6"/>
+  <ellipse cx="580" cy="300" rx="33" ry="10" fill="#7FB069" opacity=".5"/>
+  <!-- お茶の表面 -->
+  <ellipse cx="580" cy="298" rx="26" ry="7" fill="#B8D88A" opacity=".7"/>
+  <!-- 湯気 -->
+  <path d="M568 292 q4 -12 0 -20" stroke="#7FB069" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M580 286 q4 -12 0 -20" stroke="#7FB069" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+
+  <!-- テーブル上の小物（花） -->
+  <circle cx="120" cy="350" r="8" fill="#F4C95B" opacity=".8"/>
+  <circle cx="110" cy="342" r="7" fill="#E8A87C" opacity=".7"/>
+  <circle cx="130" cy="342" r="7" fill="#F4A6A0" opacity=".7"/>
+  <rect x="118" y="352" width="4" height="20" fill="#7FB069"/>
+  <circle cx="120" cy="352" r="12" fill="#86B96B" opacity=".3"/>
+
+  <!-- 窓（奥に見える） -->
+  <rect x="50" y="50" width="160" height="120" rx="7" fill="#EAF6FB" stroke="#CBB89C" stroke-width="6" opacity=".85"/>
+  <line x1="130" y1="50" x2="130" y2="170" stroke="#CBB89C" stroke-width="6"/>
+  <line x1="50" y1="108" x2="210" y2="108" stroke="#CBB89C" stroke-width="6"/>
+  <circle cx="88" cy="130" r="28" fill="#86B96B" opacity=".7"/>
+  <circle cx="148" cy="118" r="36" fill="#6FA85A" opacity=".7"/>
+
+  <rect x="490" y="50" width="160" height="120" rx="7" fill="#EAF6FB" stroke="#CBB89C" stroke-width="6" opacity=".85"/>
+  <line x1="570" y1="50" x2="570" y2="170" stroke="#CBB89C" stroke-width="6"/>
+  <line x1="490" y1="108" x2="650" y2="108" stroke="#CBB89C" stroke-width="6"/>
+  <circle cx="528" cy="130" r="28" fill="#86B96B" opacity=".7"/>
+  <circle cx="600" cy="118" r="36" fill="#6FA85A" opacity=".7"/>
+
+  <!-- 床ハイライト -->
+  <ellipse cx="350" cy="500" rx="310" ry="18" fill="#F0E2CC" opacity=".5"/>
+</svg>

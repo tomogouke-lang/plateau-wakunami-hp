@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="sans-serif">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCEEF7"/><stop offset="1" stop-color="#EAF6FB"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDFBF6"/><stop offset="1" stop-color="#F6EFE3"/>
+    </linearGradient>
+  </defs>
+  <!-- room -->
+  <rect width="1600" height="900" fill="url(#wall)"/>
+  <rect y="600" width="1600" height="300" fill="#E7D4BA"/>
+  <rect y="600" width="1600" height="18" fill="#D8C0A0"/>
+  <!-- big windows (sense of light & space) -->
+  <g>
+    <rect x="120" y="90" width="560" height="380" rx="10" fill="url(#sky)" stroke="#CBB89C" stroke-width="10"/>
+    <rect x="395" y="90" width="10" height="380" fill="#CBB89C"/>
+    <rect x="120" y="275" width="560" height="10" fill="#CBB89C"/>
+    <!-- greenery outside -->
+    <circle cx="230" cy="360" r="70" fill="#86B96B"/><circle cx="330" cy="330" r="90" fill="#6FA85A"/>
+    <circle cx="520" cy="370" r="80" fill="#86B96B"/><circle cx="600" cy="340" r="60" fill="#9CC77E"/>
+    <rect x="120" y="430" width="560" height="40" fill="#BFE0C2" opacity=".7"/>
+  </g>
+  <rect x="930" y="90" width="560" height="380" rx="10" fill="url(#sky)" stroke="#CBB89C" stroke-width="10"/>
+  <rect x="1205" y="90" width="10" height="380" fill="#CBB89C"/>
+  <rect x="930" y="275" width="560" height="10" fill="#CBB89C"/>
+  <circle cx="1040" cy="360" r="75" fill="#86B96B"/><circle cx="1150" cy="330" r="95" fill="#6FA85A"/>
+  <circle cx="1340" cy="365" r="80" fill="#86B96B"/>
+  <rect x="930" y="430" width="560" height="40" fill="#BFE0C2" opacity=".7"/>
+  <!-- hanging plant + clock for warmth -->
+  <circle cx="800" cy="150" r="46" fill="#7FB069"/><rect x="792" y="150" width="16" height="60" fill="#5E8C4F"/>
+  <!-- TABLE LEFT with two seniors chatting -->
+  <g>
+    <ellipse cx="380" cy="700" rx="210" ry="52" fill="#E8A87C"/>
+    <ellipse cx="380" cy="688" rx="210" ry="52" fill="#F2BC92"/>
+    <!-- person A -->
+    <g>
+      <path d="M250 690 q60 -150 120 0 z" fill="#6FA1C0"/>
+      <circle cx="310" cy="520" r="52" fill="#F3C9A2"/>
+      <path d="M260 512 q50 -70 100 0 q-12 -34 -50 -36 q-38 2 -50 36" fill="#ECEAE6"/>
+      <circle cx="293" cy="520" r="5" fill="#5b4636"/><circle cx="327" cy="520" r="5" fill="#5b4636"/>
+      <path d="M298 540 q12 12 24 0" stroke="#b06a4e" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="280" cy="534" r="7" fill="#F4A6A0" opacity=".55"/><circle cx="340" cy="534" r="7" fill="#F4A6A0" opacity=".55"/>
+    </g>
+    <!-- person B -->
+    <g>
+      <path d="M390 690 q60 -150 120 0 z" fill="#D9774B"/>
+      <circle cx="450" cy="520" r="52" fill="#E8B894"/>
+      <path d="M400 514 q50 -64 100 0 q-6 -40 -50 -40 q-44 0 -50 40" fill="#B9B2A8"/>
+      <circle cx="433" cy="520" r="5" fill="#5b4636"/><circle cx="467" cy="520" r="5" fill="#5b4636"/>
+      <path d="M438 540 q12 12 24 0" stroke="#b06a4e" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="420" cy="534" r="7" fill="#F4A6A0" opacity=".55"/><circle cx="480" cy="534" r="7" fill="#F4A6A0" opacity=".55"/>
+    </g>
+    <!-- tea cups -->
+    <ellipse cx="330" cy="688" rx="20" ry="9" fill="#fff"/><ellipse cx="430" cy="690" rx="20" ry="9" fill="#fff"/>
+  </g>
+  <!-- TABLE RIGHT with two seniors + staff -->
+  <g>
+    <ellipse cx="1150" cy="730" rx="240" ry="58" fill="#88B0A0"/>
+    <ellipse cx="1150" cy="716" rx="240" ry="58" fill="#A6C9BB"/>
+    <g>
+      <path d="M1010 718 q66 -160 132 0 z" fill="#F4C95B"/>
+      <circle cx="1076" cy="534" r="56" fill="#F3C9A2"/>
+      <path d="M1022 528 q54 -72 108 0 q-8 -42 -54 -42 q-46 0 -54 42" fill="#ECEAE6"/>
+      <circle cx="1058" cy="534" r="5.5" fill="#5b4636"/><circle cx="1094" cy="534" r="5.5" fill="#5b4636"/>
+      <path d="M1062 556 q14 13 28 0" stroke="#b06a4e" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <circle cx="1044" cy="549" r="8" fill="#F4A6A0" opacity=".55"/><circle cx="1108" cy="549" r="8" fill="#F4A6A0" opacity=".55"/>
+    </g>
+    <g>
+      <path d="M1160 718 q66 -160 132 0 z" fill="#C9806A"/>
+      <circle cx="1226" cy="534" r="56" fill="#E8B894"/>
+      <path d="M1172 530 q54 -66 108 0 q-4 -44 -54 -44 q-50 0 -54 44" fill="#9C7B5B"/>
+      <circle cx="1208" cy="534" r="5.5" fill="#5b4636"/><circle cx="1244" cy="534" r="5.5" fill="#5b4636"/>
+      <path d="M1212 556 q14 13 28 0" stroke="#b06a4e" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <circle cx="1194" cy="549" r="8" fill="#F4A6A0" opacity=".55"/><circle cx="1258" cy="549" r="8" fill="#F4A6A0" opacity=".55"/>
+    </g>
+  </g>
+  <!-- staff (brand color apron) standing center, welcoming -->
+  <g>
+    <path d="M720 760 q60 -210 120 0 z" fill="#3A7CA5"/>
+    <rect x="762" y="600" width="36" height="120" fill="#F3C9A2"/>
+    <circle cx="780" cy="500" r="50" fill="#F3C9A2"/>
+    <path d="M732 498 q48 -66 96 0 q-4 -44 -48 -44 q-44 0 -48 44" fill="#4a3b2e"/>
+    <circle cx="765" cy="500" r="5" fill="#3b2e23"/><circle cx="795" cy="500" r="5" fill="#3b2e23"/>
+    <path d="M768 518 q12 11 24 0" stroke="#b06a4e" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="753" cy="513" r="7" fill="#F4A6A0" opacity=".5"/><circle cx="807" cy="513" r="7" fill="#F4A6A0" opacity=".5"/>
+  </g>
+  <!-- soft floor highlight for spaciousness -->
+  <ellipse cx="800" cy="850" rx="700" ry="40" fill="#F0E2CC" opacity=".6"/>
+</svg>

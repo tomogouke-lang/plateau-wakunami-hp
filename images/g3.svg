@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" font-family="sans-serif">
+  <defs>
+    <linearGradient id="g3tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAF4F8"/><stop offset="1" stop-color="#DCF0F6"/>
+    </linearGradient>
+    <linearGradient id="g3wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B87840"/><stop offset="1" stop-color="#D4A060"/>
+    </linearGradient>
+    <linearGradient id="g3water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A8D8EE"/><stop offset="1" stop-color="#78B8D8"/>
+    </linearGradient>
+    <linearGradient id="g3sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCEEF7"/><stop offset="1" stop-color="#EAF6FB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 浴室タイル背景 -->
+  <rect width="600" height="750" fill="url(#g3tile)"/>
+
+  <!-- タイル目地（横・5列） -->
+  <line x1="0" y1="100" x2="600" y2="100" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="0" y1="200" x2="600" y2="200" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="0" y1="300" x2="600" y2="300" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="0" y1="400" x2="600" y2="400" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="0" y1="500" x2="600" y2="500" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="0" y1="600" x2="600" y2="600" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="0" y1="700" x2="600" y2="700" stroke="#C0DCE8" stroke-width="2"/>
+  <!-- タイル目地（縦） -->
+  <line x1="100" y1="0" x2="100" y2="750" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="200" y1="0" x2="200" y2="750" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="300" y1="0" x2="300" y2="750" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="400" y1="0" x2="400" y2="750" stroke="#C0DCE8" stroke-width="2"/>
+  <line x1="500" y1="0" x2="500" y2="750" stroke="#C0DCE8" stroke-width="2"/>
+
+  <!-- 上部タイルアクセント（ブランド青） -->
+  <rect x="0" y="0" width="600" height="60" fill="#3A7CA5" opacity=".15"/>
+  <rect x="0" y="55" width="600" height="6" fill="#3A7CA5" opacity=".4"/>
+
+  <!-- 高窓（左上） -->
+  <rect x="40" y="80" width="160" height="100" rx="6" fill="url(#g3sky)" stroke="#CBB89C" stroke-width="5"/>
+  <line x1="120" y1="80" x2="120" y2="180" stroke="#CBB89C" stroke-width="5"/>
+  <line x1="40" y1="128" x2="200" y2="128" stroke="#CBB89C" stroke-width="5"/>
+  <!-- 窓外の緑 -->
+  <circle cx="80" cy="150" r="28" fill="#86B96B" opacity=".6"/>
+  <circle cx="130" cy="135" r="36" fill="#6FA85A" opacity=".6"/>
+
+  <!-- 高窓（右上） -->
+  <rect x="400" y="80" width="160" height="100" rx="6" fill="url(#g3sky)" stroke="#CBB89C" stroke-width="5"/>
+  <line x1="480" y1="80" x2="480" y2="180" stroke="#CBB89C" stroke-width="5"/>
+  <line x1="400" y1="128" x2="560" y2="128" stroke="#CBB89C" stroke-width="5"/>
+  <circle cx="440" cy="150" r="26" fill="#86B96B" opacity=".6"/>
+  <circle cx="496" cy="135" r="34" fill="#6FA85A" opacity=".6"/>
+
+  <!-- 換気扇 -->
+  <rect x="262" y="25" width="76" height="26" rx="6" fill="#B0C8D0"/>
+  <rect x="266" y="28" width="68" height="18" rx="4" fill="#9AB8C0"/>
+  <line x1="272" y1="37" x2="330" y2="37" stroke="#7A9AA8" stroke-width="2"/>
+  <line x1="272" y1="43" x2="330" y2="43" stroke="#7A9AA8" stroke-width="2"/>
+
+  <!-- 大型湯船（木製・中央メイン） -->
+  <!-- 外側の木枠 -->
+  <rect x="60" y="340" width="480" height="300" rx="18" fill="url(#g3wood)" stroke="#8B5A28" stroke-width="5"/>
+  <!-- 内側 -->
+  <rect x="76" y="358" width="448" height="264" rx="12" fill="url(#g3water)"/>
+  <!-- お湯の表面光沢 -->
+  <ellipse cx="300" cy="395" rx="160" ry="22" fill="#C8E8F4" opacity=".6"/>
+  <ellipse cx="240" cy="430" rx="100" ry="12" fill="#DCEEF7" opacity=".5"/>
+  <ellipse cx="380" cy="450" rx="80" ry="10" fill="#DCEEF7" opacity=".4"/>
+  <!-- 湯船内の波紋 -->
+  <ellipse cx="300" cy="490" rx="180" ry="14" fill="#A0CCE4" opacity=".3"/>
+  <!-- 木目ライン -->
+  <line x1="60" y1="380" x2="540" y2="380" stroke="#A06820" stroke-width="2" opacity=".5"/>
+  <line x1="60" y1="420" x2="540" y2="420" stroke="#A06820" stroke-width="1.5" opacity=".3"/>
+
+  <!-- 湯気（大きく） -->
+  <path d="M180 340 q8 -30 0 -52" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".65"/>
+  <path d="M220 330 q8 -30 0 -52" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".6"/>
+  <path d="M260 324 q8 -30 0 -52" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".65"/>
+  <path d="M300 320 q8 -30 0 -52" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".6"/>
+  <path d="M340 324 q8 -30 0 -52" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".65"/>
+  <path d="M380 330 q8 -30 0 -52" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".6"/>
+  <path d="M420 338 q8 -30 0 -52" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".65"/>
+
+  <!-- 手すり（湯船横） -->
+  <!-- 左側縦手すり -->
+  <rect x="30" y="300" width="14" height="130" rx="7" fill="#3A7CA5"/>
+  <rect x="22" y="296" width="30" height="14" rx="7" fill="#3A7CA5"/>
+  <rect x="22" y="416" width="30" height="14" rx="7" fill="#3A7CA5"/>
+  <!-- 右側縦手すり -->
+  <rect x="556" y="300" width="14" height="130" rx="7" fill="#3A7CA5"/>
+  <rect x="548" y="296" width="30" height="14" rx="7" fill="#3A7CA5"/>
+  <rect x="548" y="416" width="30" height="14" rx="7" fill="#3A7CA5"/>
+
+  <!-- ステップ（手前の台） -->
+  <rect x="80" y="630" width="440" height="28" rx="6" fill="#C8935A" opacity=".7"/>
+  <rect x="80" y="658" width="440" height="20" rx="4" fill="#B87840" opacity=".5"/>
+
+  <!-- シャワーエリア（左側） -->
+  <!-- 洗面台・鏡 -->
+  <rect x="40" y="210" width="100" height="110" rx="8" fill="#C8DDE8" stroke="#A0BCCC" stroke-width="3"/>
+  <rect x="46" y="216" width="88" height="80" rx="6" fill="#E8F4FA" opacity=".85"/>
+  <!-- 蛇口 -->
+  <rect x="82" y="310" width="16" height="12" rx="4" fill="#A09080"/>
+  <ellipse cx="90" cy="322" rx="14" ry="6" fill="#88A8B8"/>
+
+  <!-- シャワーホルダー -->
+  <path d="M170 215 q0 50 -10 80" stroke="#A09080" stroke-width="7" fill="none"/>
+  <ellipse cx="160" cy="296" rx="14" ry="7" fill="#888"/>
+
+  <!-- シャワー椅子 -->
+  <rect x="220" y="260" width="90" height="10" rx="4" fill="#88B0C8"/>
+  <rect x="223" y="270" width="10" height="55" rx="4" fill="#88B0C8"/>
+  <rect x="298" y="270" width="10" height="55" rx="4" fill="#88B0C8"/>
+  <rect x="212" y="270" width="18" height="7" rx="3" fill="#70A0B8"/>
+  <rect x="300" y="270" width="18" height="7" rx="3" fill="#70A0B8"/>
+
+  <!-- シャワーエリア（右側） -->
+  <rect x="460" y="210" width="100" height="110" rx="8" fill="#C8DDE8" stroke="#A0BCCC" stroke-width="3"/>
+  <rect x="466" y="216" width="88" height="80" rx="6" fill="#E8F4FA" opacity=".85"/>
+  <rect x="502" y="310" width="16" height="12" rx="4" fill="#A09080"/>
+  <ellipse cx="510" cy="322" rx="14" ry="6" fill="#88A8B8"/>
+
+  <!-- 床排水口 -->
+  <ellipse cx="300" cy="720" rx="30" ry="12" fill="#A0B8C0" opacity=".5"/>
+  <ellipse cx="300" cy="720" rx="20" ry="8" fill="#88A0A8" opacity=".4"/>
+</svg>

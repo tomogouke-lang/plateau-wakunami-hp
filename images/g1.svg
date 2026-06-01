@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" font-family="sans-serif">
+  <defs>
+    <linearGradient id="g1sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCEEF7"/><stop offset="1" stop-color="#EAF6FB"/>
+    </linearGradient>
+    <linearGradient id="g1wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F2E6"/><stop offset="1" stop-color="#EEE2CC"/>
+    </linearGradient>
+    <linearGradient id="g1roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3A7CA5"/><stop offset="1" stop-color="#2C5F80"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 空 -->
+  <rect width="600" height="750" fill="url(#g1sky)"/>
+
+  <!-- 雲 -->
+  <ellipse cx="120" cy="80" rx="60" ry="28" fill="#fff" opacity=".85"/>
+  <ellipse cx="165" cy="68" rx="45" ry="24" fill="#fff" opacity=".85"/>
+  <ellipse cx="88" cy="88" rx="36" ry="18" fill="#fff" opacity=".85"/>
+  <ellipse cx="440" cy="100" rx="70" ry="30" fill="#fff" opacity=".8"/>
+  <ellipse cx="494" cy="88" rx="48" ry="22" fill="#fff" opacity=".8"/>
+  <ellipse cx="408" cy="108" rx="38" ry="18" fill="#fff" opacity=".8"/>
+
+  <!-- 地面・駐車場 -->
+  <rect y="580" width="600" height="170" fill="#D0C0A0"/>
+  <rect y="580" width="600" height="8" fill="#B8A880"/>
+  <!-- 駐車場ライン -->
+  <line x1="160" y1="590" x2="160" y2="680" stroke="#E8E0D0" stroke-width="2" stroke-dasharray="8,6"/>
+  <line x1="300" y1="590" x2="300" y2="680" stroke="#E8E0D0" stroke-width="2" stroke-dasharray="8,6"/>
+  <line x1="440" y1="590" x2="440" y2="680" stroke="#E8E0D0" stroke-width="2" stroke-dasharray="8,6"/>
+
+  <!-- 前景の植栽・芝 -->
+  <rect y="560" width="600" height="28" fill="#86B96B"/>
+  <rect y="572" width="600" height="16" fill="#7FB069"/>
+
+  <!-- 建物本体（1階建て横長） -->
+  <!-- 屋根 -->
+  <path d="M40 280 l520 0 l0 -40 l-260 -80 l-260 80 z" fill="url(#g1roof)"/>
+  <path d="M40 280 l520 0 l0 -40 l-260 -80 l-260 80 z" fill="none" stroke="#2C5F80" stroke-width="4"/>
+  <!-- 屋根のひさし -->
+  <rect x="30" y="278" width="540" height="18" rx="4" fill="#2C5F80"/>
+
+  <!-- 外壁 -->
+  <rect x="40" y="296" width="520" height="270" fill="url(#g1wall)" stroke="#DDD0BA" stroke-width="3"/>
+
+  <!-- 看板 -->
+  <rect x="160" y="312" width="280" height="56" rx="8" fill="#3A7CA5"/>
+  <rect x="163" y="315" width="274" height="50" rx="7" fill="#2C5F80" opacity=".4"/>
+  <!-- 看板文字のダミーライン（テキストなし・横線で表現） -->
+  <rect x="180" y="328" width="160" height="8" rx="3" fill="#fff" opacity=".9"/>
+  <rect x="180" y="344" width="120" height="6" rx="3" fill="#BFDCEC" opacity=".8"/>
+  <!-- 看板の飾り -->
+  <circle cx="160" cy="340" r="8" fill="#F4C95B"/>
+  <circle cx="440" cy="340" r="8" fill="#F4C95B"/>
+
+  <!-- 入口ドア（中央） -->
+  <rect x="230" y="430" width="140" height="136" rx="5" fill="#BFDCEC" stroke="#3A7CA5" stroke-width="5"/>
+  <!-- 自動ドアの線 -->
+  <line x1="300" y1="430" x2="300" y2="566" stroke="#3A7CA5" stroke-width="4"/>
+  <!-- ドア上のひさし -->
+  <rect x="205" y="418" width="190" height="18" rx="5" fill="#3A7CA5"/>
+  <!-- ドアの取っ手 -->
+  <rect x="270" y="498" width="20" height="6" rx="3" fill="#2C5F80"/>
+  <rect x="310" y="498" width="20" height="6" rx="3" fill="#2C5F80"/>
+
+  <!-- 左側の窓群 -->
+  <rect x="60" y="330" width="110" height="80" rx="5" fill="#BFDCEC" stroke="#3A7CA5" stroke-width="4"/>
+  <line x1="114" y1="330" x2="114" y2="410" stroke="#3A7CA5" stroke-width="4"/>
+  <line x1="60" y1="368" x2="170" y2="368" stroke="#3A7CA5" stroke-width="4"/>
+
+  <rect x="60" y="430" width="110" height="80" rx="5" fill="#BFDCEC" stroke="#3A7CA5" stroke-width="4"/>
+  <line x1="114" y1="430" x2="114" y2="510" stroke="#3A7CA5" stroke-width="4"/>
+  <line x1="60" y1="468" x2="170" y2="468" stroke="#3A7CA5" stroke-width="4"/>
+
+  <!-- 右側の窓群 -->
+  <rect x="430" y="330" width="110" height="80" rx="5" fill="#BFDCEC" stroke="#3A7CA5" stroke-width="4"/>
+  <line x1="484" y1="330" x2="484" y2="410" stroke="#3A7CA5" stroke-width="4"/>
+  <line x1="430" y1="368" x2="540" y2="368" stroke="#3A7CA5" stroke-width="4"/>
+
+  <rect x="430" y="430" width="110" height="80" rx="5" fill="#BFDCEC" stroke="#3A7CA5" stroke-width="4"/>
+  <line x1="484" y1="430" x2="484" y2="510" stroke="#3A7CA5" stroke-width="4"/>
+  <line x1="430" y1="468" x2="540" y2="468" stroke="#3A7CA5" stroke-width="4"/>
+
+  <!-- 手すり付きスロープ（左） -->
+  <path d="M40 566 l0 -80 l-10 0 l0 80 z" fill="#C8B898"/>
+  <path d="M30 486 l80 80" stroke="#A09080" stroke-width="14" stroke-linecap="round"/>
+  <path d="M30 484 l80 80" stroke="#3A7CA5" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- 植栽（左） -->
+  <rect x="42" y="540" width="16" height="30" fill="#8B6B4A"/>
+  <circle cx="50" cy="524" r="28" fill="#7FB069"/>
+  <circle cx="68" cy="534" r="20" fill="#86B96B"/>
+  <circle cx="30" cy="536" r="18" fill="#6FA85A"/>
+
+  <!-- 植栽（右） -->
+  <rect x="542" y="540" width="16" height="30" fill="#8B6B4A"/>
+  <circle cx="550" cy="524" r="28" fill="#7FB069"/>
+  <circle cx="568" cy="534" r="20" fill="#86B96B"/>
+  <circle cx="530" cy="536" r="18" fill="#6FA85A"/>
+
+  <!-- 丸型花壇（入口前） -->
+  <ellipse cx="300" cy="580" rx="60" ry="14" fill="#7FB069"/>
+  <circle cx="280" cy="565" r="12" fill="#F4A6A0" opacity=".85"/>
+  <circle cx="300" cy="558" r="14" fill="#F4C95B" opacity=".85"/>
+  <circle cx="320" cy="565" r="12" fill="#E8A87C" opacity=".85"/>
+
+  <!-- 駐車中の送迎車（白） -->
+  <rect x="80" y="614" width="140" height="58" rx="8" fill="#F5F5F5" stroke="#DCDCDC" stroke-width="2"/>
+  <path d="M104 614 q0 -34 24 -38 l60 0 q24 4 24 38 z" fill="#EFEFEF" stroke="#DCDCDC" stroke-width="2"/>
+  <rect x="110" y="586" width="36" height="24" rx="4" fill="#BFDCEC" opacity=".8"/>
+  <rect x="152" y="586" width="30" height="24" rx="4" fill="#BFDCEC" opacity=".8"/>
+  <circle cx="108" cy="672" r="16" fill="#555"/>
+  <circle cx="108" cy="672" r="8" fill="#888"/>
+  <circle cx="196" cy="672" r="16" fill="#555"/>
+  <circle cx="196" cy="672" r="8" fill="#888"/>
+  <rect x="80" y="644" width="140" height="6" rx="3" fill="#3A7CA5" opacity=".6"/>
+
+  <!-- 太陽 -->
+  <circle cx="520" cy="90" r="38" fill="#F4C95B" opacity=".6"/>
+  <circle cx="520" cy="90" r="28" fill="#F4C95B" opacity=".8"/>
+</svg>
