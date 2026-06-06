@@ -171,7 +171,7 @@ window.FACILITY = {
   brandColor: "#3A7CA5",            // 通所=#3A7CA5 / リハ=#2E8B57 / 小規模多機能=#D4774B
   heroCatch: "広いから、仲間ができる。にぎやかだから、また来たくなる。",
   heroLead: "定員35名のゆったりした空間。たくさんの仲間の中で、気の合う人と出会い、長く楽しく通える——金沢市涌波で、平成12年からの毎日です。",
-  heroImage: "images/hero.svg", // 本番：施設の実写 or 制作画像に差し替え
+  heroImage: "images/wakunami-hero.jpg", // 本番：施設の実写 or 制作画像に差し替え
   stats: [
     { big:"定員 35名", small:"ゆったり広い空間" },
     { big:"たくさんの仲間", small:"気の合う人ができる" },
@@ -187,11 +187,11 @@ window.FACILITY = {
   mismatchNote: "当施設の持ち味は「広さ」と「にぎやかさ」です。だからこそ、ゆったり静かに、ご自分のペースで過ごしたい方には、にぎやかさが負担に感じられることがあります。実際に、見学やお試しのあと「もう少し落ち着いた所が合う」とお戻りになる方もいらっしゃいます。それは“合わなかった”のではなく、その方にもっと合う場所がある、ということ。私たちは無理にお引き止めせず、合う施設を一緒に探します。にぎやかさを楽しめる方には、これ以上ない居場所になります。",
   services: [
     { title:"仲間ができる、広い空間", body:"定員35名。たくさんの方が通うからこそ、気の合う仲間に出会えます。「ここに来れば誰かがいる」——それが、通い続ける一番の力になります。",
-      image:"images/svc1.svg", imgRule:"様子の実写（人はアニメ/後ろ姿）／制作画像" },
+      image:"images/wakunami-space.jpg", imgRule:"様子の実写（人はアニメ/後ろ姿）／制作画像" },
     { title:"充実の機能訓練", body:"機能訓練指導員が、お一人おひとりに合わせて訓練メニューを用意。仲間と一緒だから、運動も自然と続きます。（充実した運動は当グループ共通の自慢です）",
-      image:"images/svc2.svg", imgRule:"設備の実写（人を写さない）／制作画像" },
+      image:"images/wakunami-training.jpg", imgRule:"設備の実写（人を写さない）／制作画像" },
     { title:"入浴・送迎も安心", body:"ご希望に応じた入浴介助、金沢市内のご自宅までの送迎。通うこと自体の負担を、できるだけ軽くします。",
-      image:"images/svc3.svg", imgRule:"設備の実写／制作画像" }
+      image:"images/wakunami-bath.jpg", imgRule:"設備の実写／制作画像" }
   ],
   day: [
     { t:"朝", d:"お迎え・体温と血圧のチェック・水分補給" },
@@ -200,7 +200,7 @@ window.FACILITY = {
     { t:"午後", d:"レクリエーション・お茶・おしゃべり" },
     { t:"夕", d:"ご自宅までお送り" }
   ],
-  dayImage: "images/day.svg", // 本番：食事や活動の実写（人を写さない）／制作画像
+  dayImage: "images/wakunami-day.jpg", // 本番：食事や活動の実写（人を写さない）／制作画像
   voices: [],   // 本物の声が集まったら { quote, body, who } を追加（作り話は入れない）
   voicesNote: "ご利用者さまの声は、現場で実際にお寄せいただいた“本物の声”だけを掲載する方針です。ただいま準備中です。見学・体験のご感想も、よろしければお聞かせください。",
   faq: [
@@ -241,10 +241,10 @@ window.FACILITY = {
     "主な加算":"入浴介助・個別機能訓練・サービス提供体制強化・処遇改善 ほか", "FAX":"076-260-3044", "担当窓口":"管理者"
   },
   gallery: [
-    { image:"images/g1.svg", cap:"外観" },
-    { image:"images/g2.svg", cap:"広い訓練スペース" },
-    { image:"images/g3.svg", cap:"お風呂" },
-    { image:"images/g4.svg", cap:"お食事" }
+    { image:"images/wakunami-exterior.jpg", cap:"外観" },
+    { image:"images/wakunami-hero.jpg", cap:"広い訓練スペース" },
+    { image:"images/wakunami-bath.jpg", cap:"お風呂（イメージ）" },
+    { image:"images/wakunami-meal.jpg", cap:"お食事（イメージ）" }
   ],
   // 紹介動画（後から差し込む用）：YouTube等の埋め込みURLを embed に／手元のmp4は videos/intro.mp4 等を file に。両方空なら動画セクション自体が非表示。
   video: { embed:"", file:"", caption:"" },
@@ -267,7 +267,12 @@ window.FACILITY = {
   mapEmbedUrl: "https://maps.google.com/maps?q=%E7%9F%B3%E5%B7%9D%E7%9C%8C%E9%87%91%E6%B2%A2%E5%B8%82%E6%B6%8C%E6%B3%A23%E4%B8%81%E7%9B%AE5%E7%95%AA33%E5%8F%B7&hl=ja&z=16&output=embed",
   postal: "920-0966", address: "石川県金沢市涌波３丁目５番３３号 ミナミコーポ１F",
   phone: "076-262-4556", person: "管理者",
-  corporateUrl: "https://pds-plateau.com/"
+  corporateUrl: "https://pds-plateau.com/",
+  contactForm: {
+    embedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc2fQBGRrtEQ_hcQpKNSTuAh4gWUToB2twjMLjA_s9LTwaMCw/viewform?embedded=true",
+    viewUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc2fQBGRrtEQ_hcQpKNSTuAh4gWUToB2twjMLjA_s9LTwaMCw/viewform",
+    note: "フォームは準備中です。お急ぎの場合はお電話でお問い合わせください。"
+  }
 };
 </script>
 <!-- ============ ここから下は触らない（DO NOT EDIT below）============ -->
@@ -405,6 +410,10 @@ window.FACILITY = {
         <div class="card" style="padding:0;overflow:hidden;" id="mapBox">
           <div class="ph" style="height:100%;min-height:240px;border-radius:0;">［Googleマップの埋め込み枠］</div>
         </div>
+        <div class="card" id="contactFormBox" style="grid-column:1 / -1;">
+          <h3 style="color:var(--brand-dark);">お問い合わせフォーム</h3>
+          <p style="margin:8px 0 0;color:var(--sub);">フォームを読み込んでいます。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -414,7 +423,7 @@ window.FACILITY = {
   <div class="inner">
     <p style="margin:0 0 6px;"><b>運営：株式会社PDSプラトー</b>　ON. START LINE</p>
     <p style="margin:0 0 6px;"><a id="corpLink" href="#" target="_blank" rel="noopener noreferrer">法人ホームページはこちら</a></p>
-    <p style="margin:0;font-size:12px;opacity:.7;">© PDS Plateau Co., Ltd.　※写真は仮の無料素材。本番は実際の施設写真に差し替え。</p>
+    <p style="margin:0;font-size:12px;opacity:.7;">© PDS Plateau Co., Ltd.　※お風呂・お食事の写真はイメージです。</p>
   </div>
 </footer>
 
@@ -489,6 +498,18 @@ window.FACILITY = {
   set('akiButtons',b);
   // 地図：embed URLがあればiframe、なければ枠のまま
   if(F.mapEmbedUrl){ set('mapBox',`<iframe src="${esc(F.mapEmbedUrl)}" width="100%" height="100%" style="border:0;min-height:240px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`); }
+  // お問い合わせフォーム：Googleフォームの埋め込みURLがあれば表示。空なら電話案内。
+  const cf=F.contactForm||{};
+  const cfBox=document.getElementById('contactFormBox');
+  if(cfBox){
+    if(cf.embedUrl){
+      cfBox.style.padding='0';
+      cfBox.style.overflow='hidden';
+      cfBox.innerHTML=`<iframe src="${esc(cf.embedUrl)}" width="100%" height="760" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">読み込んでいます...</iframe>`;
+    } else {
+      cfBox.innerHTML=`<h3 style="color:var(--brand-dark);">お問い合わせフォーム</h3><p style="margin:8px 0 0;color:var(--sub);">${esc(cf.note||'フォームは準備中です。お急ぎの場合はお電話でお問い合わせください。')}</p>`+(cf.viewUrl?`<p style="margin:14px 0 0;"><a class="btn btn-brand" href="${esc(cf.viewUrl)}" target="_blank" rel="noopener noreferrer">フォームを開く</a></p>`:'');
+    }
+  }
   const cl=document.getElementById('corpLink'); if(cl&&F.corporateUrl) cl.href=F.corporateUrl;
   const ph=document.getElementById('phoneLink'); if(ph&&F.phone){ ph.href='tel:'+String(F.phone).replace(/[^0-9+]/g,''); }
 })();
