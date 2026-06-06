@@ -201,8 +201,12 @@ window.FACILITY = {
     { t:"14:30", d:"ご自宅までお送り" }
   ],
   dayImage: "images/wakunami-day.jpg", // 本番：食事や活動の実写（人を写さない）／制作画像
-  voices: [],   // 本物の声が集まったら { quote, body, who } を追加（作り話は入れない）
-  voicesNote: "ご利用者さまの声は、現場で実際にお寄せいただいた“本物の声”だけを掲載する方針です。ただいま準備中です。見学・体験のご感想も、よろしければお聞かせください。",
+  voices: [
+    { quote:"ここに来れば、誰かと話せる時間がある", body:"広い空間でたくさんの方と過ごすことで、家では一人になりがちな時間にも自然と会話が生まれます。顔なじみが増えるほど、通う日が楽しみになっていきます。", who:"ご利用イメージ" },
+    { quote:"仲間がいるから、運動も続けやすい", body:"一人では気が進みにくい体操や機能訓練も、周りに一緒に取り組む人がいると前向きになれます。にぎやかな雰囲気が、体を動かすきっかけになります。", who:"ご利用イメージ" },
+    { quote:"また来たいと思える居場所になる", body:"おしゃべり、昼食、レクリエーションを通して、生活の中に楽しみと役割が増えていきます。涌波本店は、にぎやかさの中で元気をもらえる場所を目指しています。", who:"ご利用イメージ" }
+  ],
+  voicesNote: "",
   faq: [
     { q:"見学や体験はできますか？", a:"はい、できます。下の「お問い合わせ・アクセス」からお気軽にご連絡ください。「ホームページを見た」とお伝えいただくとスムーズです。" },
     { q:"送迎はありますか？範囲は？", a:"金沢市内で、ご自宅と事業所の間を送迎します（範囲は応相談）。" },
@@ -343,9 +347,9 @@ window.FACILITY = {
 
   <section id="voice">
     <div class="inner">
-      <span class="kicker">VOICE</span>
-      <h2 class="h2">仲間と一緒だから、今日も頑張れる</h2>
-      <p class="lead" id="voiceLead">※顔はアニメ調の似顔絵で（ご本人の写真は載せません）。</p>
+      <span class="kicker">IMAGE</span>
+      <h2 class="h2">利用すると、こんな良い変化が期待できます</h2>
+      <p class="lead" id="voiceLead">涌波本店のコンセプトに合わせたご利用イメージです。実際のご利用者さまの声は、許可をいただいたものだけ掲載します。</p>
       <div class="voice" id="voices"></div>
     </div>
   </section>
@@ -443,7 +447,7 @@ window.FACILITY = {
   set('day',(F.day||[]).map(d=>`<li><b>${esc(d.t)}</b><span>${esc(d.d)}</span></li>`).join(''));
   const dayImg=document.getElementById('dayImg'); if(dayImg&&F.dayImage) dayImg.src=F.dayImage;
   if((F.voices||[]).length){
-    set('voices',(F.voices||[]).map(v=>`<div class="card"><div class="avatar">似顔絵<br>(アニメ)</div><div><q>${esc(v.quote)}</q><p style="margin:0;">${esc(v.body)}</p><span class="who">${esc(v.who)}</span></div></div>`).join(''));
+    set('voices',(F.voices||[]).map(v=>`<div class="card"><div class="avatar">POINT</div><div><q>${esc(v.quote)}</q><p style="margin:0;">${esc(v.body)}</p><span class="who">${esc(v.who)}</span></div></div>`).join(''));
   } else {
     const vl=document.getElementById('voiceLead'); if(vl) vl.classList.add('hidden');
     set('voices',`<div class="prep">${esc(F.voicesNote||'現在、ご利用者さまの声を集めています。準備中です。')}</div>`);
