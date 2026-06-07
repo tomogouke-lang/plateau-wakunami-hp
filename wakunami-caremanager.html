@@ -78,6 +78,7 @@
   select{width:100%;margin-top:6px;border:1px solid #cfcfcf;border-radius:10px;background:#fff;padding:12px 13px;}
   .check{display:flex;align-items:center;gap:10px;font-weight:800;}
   .check input{width:20px;height:20px;accent-color:var(--brand);}
+  .is-hidden{display:none!important;}
   .total{font-size:42px;font-weight:900;color:var(--brand-dark);line-height:1.2;margin:8px 0;}
   .breakdown{margin:14px 0 0;padding:0;list-style:none;border-top:1px solid var(--line);}
   .breakdown li{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px dashed var(--line);}
@@ -261,7 +262,7 @@
         <div>
           <span class="eyebrow">PRICE</span>
           <h2 class="h2">料金シミュレーター</h2>
-          <p>予防通所介護・緩和型の目安確認用です。正式な金額は区分・加算・負担割合で変わります。</p>
+          <p>通所介護・予防通所介護・緩和型の目安確認用です。正式な金額は区分・加算・負担割合で変わります。</p>
         </div>
       </div>
       <div class="sim-wrap">
@@ -269,10 +270,20 @@
           <div class="form-grid">
             <label>利用区分
               <select id="serviceType">
-                <option value="preventive1" data-base1="2297" data-base2="4594" data-base3="6891" data-visits="4">予防通所介護（週1回程度）</option>
-                <option value="preventive2" data-base1="4464" data-base2="8928" data-base3="13391" data-visits="8">予防通所介護（週2回程度）</option>
-                <option value="relief1" data-base1="1789" data-base2="3578" data-base3="5366" data-visits="4">緩和型（週1回程度）</option>
-                <option value="relief2" data-base1="3443" data-base2="6885" data-base3="10328" data-visits="8">緩和型（週2回程度）</option>
+                <option value="daycare" data-kind="daycare">通所介護（要介護1〜5）</option>
+                <option value="preventive1" data-kind="monthly" data-base1="2297" data-base2="4594" data-base3="6891" data-visits="4">予防通所介護（週1回程度）</option>
+                <option value="preventive2" data-kind="monthly" data-base1="4464" data-base2="8928" data-base3="13391" data-visits="8">予防通所介護（週2回程度）</option>
+                <option value="relief1" data-kind="monthly" data-base1="1789" data-base2="3578" data-base3="5366" data-visits="4">緩和型（週1回程度）</option>
+                <option value="relief2" data-kind="monthly" data-base1="3443" data-base2="6885" data-base3="10328" data-visits="8">緩和型（週2回程度）</option>
+              </select>
+            </label>
+            <label id="careLevelField">介護度
+              <select id="careLevel">
+                <option value="0">要介護1</option>
+                <option value="1">要介護2</option>
+                <option value="2">要介護3</option>
+                <option value="3">要介護4</option>
+                <option value="4">要介護5</option>
               </select>
             </label>
             <label>利用時間
@@ -286,6 +297,16 @@
                 <option value="1">1割</option>
                 <option value="2">2割</option>
                 <option value="3">3割</option>
+              </select>
+            </label>
+            <label id="weeklyField">通所介護の利用回数
+              <select id="weekly">
+                <option value="1">週1回</option>
+                <option value="2">週2回</option>
+                <option value="3" selected>週3回</option>
+                <option value="4">週4回</option>
+                <option value="5">週5回</option>
+                <option value="6">週6回</option>
               </select>
             </label>
             <label>送迎
@@ -304,7 +325,7 @@
           <div class="total" id="totalPrice">--円</div>
           <ul class="breakdown" id="breakdown"></ul>
           <p class="note note-danger">※あくまでも目安です。正式な料金は契約時・ケアプラン作成時に必ず確認してください。</p>
-          <p class="note">予防通所介護・緩和型は契約書記載の月額目安で表示しています。半日・1日の選択は利用イメージの確認用です。送迎なしは契約書記載の「-54円/片道・日（1割負担の場合）」を目安にしています。入浴は契約書の料金表に別加算として記載がないため、金額には加えていません。</p>
+          <p class="note">通所介護は契約書記載の1回あたり目安に月の利用回数目安を掛けて表示しています。予防通所介護・緩和型は契約書記載の月額目安で表示しています。送迎なしは契約書記載の「-54円/片道・日（1割負担の場合）」を目安にしています。</p>
         </div>
       </div>
     </div>
@@ -336,35 +357,60 @@
 <script>
 (function(){
   const service=document.getElementById('serviceType');
+  const careLevel=document.getElementById('careLevel');
+  const careLevelField=document.getElementById('careLevelField');
   const timeSlot=document.getElementById('timeSlot');
   const burden=document.getElementById('burden');
+  const weekly=document.getElementById('weekly');
+  const weeklyField=document.getElementById('weeklyField');
   const transport=document.getElementById('transport');
   const lunch=document.getElementById('lunch');
   const bath=document.getElementById('bath');
   const total=document.getElementById('totalPrice');
   const breakdown=document.getElementById('breakdown');
   const yen=n=>Math.round(n).toLocaleString('ja-JP')+'円';
+  const daycareFees={
+    half:{
+      1:[509,569,633,694,757],
+      2:[1018,1138,1266,1387,1513],
+      3:[1527,1707,1899,2081,2270]
+    },
+    day:{
+      1:[782,899,1016,1134,1252],
+      2:[1564,1797,2032,2268,2503],
+      3:[2346,2696,3048,3401,3754]
+    }
+  };
+  const monthlyDaycareAddons={1:137,2:274,3:411};
   function calc(){
     const selected=service.options[service.selectedIndex];
     const rate=Number(burden.value);
-    const visits=Number(selected.dataset.visits);
-    const insurance=Number(selected.dataset['base'+rate]);
+    const isDaycare=selected.dataset.kind==='daycare';
+    careLevelField.classList.toggle('is-hidden',!isDaycare);
+    weeklyField.classList.toggle('is-hidden',!isDaycare);
+    const visits=isDaycare?Math.round(Number(weekly.value)*4.3):Number(selected.dataset.visits);
+    const baseInsurance=isDaycare?daycareFees[timeSlot.value][rate][Number(careLevel.value)]:Number(selected.dataset['base'+rate]);
+    const daycareMonthlyAddon=isDaycare?monthlyDaycareAddons[rate]:0;
+    const bathAdjustment=isDaycare?(timeSlot.value==='half'&&bath.checked?46*rate*visits:(timeSlot.value==='day'&&!bath.checked?-46*rate*visits:0)):0;
+    const insurance=isDaycare?(baseInsurance*visits)+daycareMonthlyAddon+bathAdjustment:baseInsurance;
     const lunchFee=lunch.checked?630*visits:0;
     const transportDeduction=Number(transport.value)*54*rate*visits;
     const sum=insurance+lunchFee-transportDeduction;
     const timeText=timeSlot.options[timeSlot.selectedIndex].text;
+    const bathText=isDaycare?(bathAdjustment>0?'入浴加算目安を加算':bathAdjustment<0?'入浴なしのため目安減算':'料金表に入浴込み'):bath.checked?'希望あり（料金表に別加算記載なし）':'希望なし・または要相談';
     total.textContent='約 '+yen(sum);
     breakdown.innerHTML=[
       ['利用区分',selected.text],
+      ...(isDaycare?[['介護度',careLevel.options[careLevel.selectedIndex].text]]:[]),
       ['利用時間',timeText],
       ['月の利用回数目安',visits+'回'],
-      ['介護保険分（月額目安）',yen(insurance)],
+      ['介護保険分目安',yen(insurance)],
       ['送迎減算目安',transportDeduction?'-'+yen(transportDeduction):yen(0)],
       ['昼食代目安',yen(lunchFee)],
-      ['入浴',bath.checked?'希望あり（料金表に別加算記載なし）':'希望なし・または要相談']
+      ['入浴',bathText]
     ].map(([k,v])=>'<li><span>'+k+'</span><b>'+v+'</b></li>').join('');
   }
-  [service,timeSlot,burden,transport,lunch,bath].forEach(el=>el.addEventListener('change',calc));
+  [service,careLevel,timeSlot,burden,weekly,transport,lunch,bath].forEach(el=>el.addEventListener('change',calc));
   calc();
 })();
 </script>
