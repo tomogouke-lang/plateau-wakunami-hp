@@ -269,10 +269,10 @@
           <div class="form-grid">
             <label>利用区分
               <select id="serviceType">
-                <option value="preventive1" data-base1="2239" data-base2="4478" data-base3="6717" data-visits="4">予防通所介護（週1回程度）</option>
-                <option value="preventive2" data-base1="4351" data-base2="8702" data-base3="13053" data-visits="8">予防通所介護（週2回程度）</option>
-                <option value="relief1" data-base1="1744" data-base2="3488" data-base3="5232" data-visits="4">緩和型（週1回程度）</option>
-                <option value="relief2" data-base1="3357" data-base2="6713" data-base3="10069" data-visits="8">緩和型（週2回程度）</option>
+                <option value="preventive1" data-base1="2297" data-base2="4594" data-base3="6891" data-visits="4">予防通所介護（週1回程度）</option>
+                <option value="preventive2" data-base1="4464" data-base2="8928" data-base3="13391" data-visits="8">予防通所介護（週2回程度）</option>
+                <option value="relief1" data-base1="1789" data-base2="3578" data-base3="5366" data-visits="4">緩和型（週1回程度）</option>
+                <option value="relief2" data-base1="3443" data-base2="6885" data-base3="10328" data-visits="8">緩和型（週2回程度）</option>
               </select>
             </label>
             <label>利用時間
@@ -288,8 +288,15 @@
                 <option value="3">3割</option>
               </select>
             </label>
+            <label>送迎
+              <select id="transport">
+                <option value="0" selected>往復送迎あり</option>
+                <option value="1">片道送迎なし（減算目安）</option>
+                <option value="2">往復送迎なし（減算目安）</option>
+              </select>
+            </label>
             <label class="check"><input id="lunch" type="checkbox" checked> 昼食あり（630円/食）</label>
-            <label class="check"><input id="bath" type="checkbox" checked> 入浴あり（入浴加算を目安計算）</label>
+            <label class="check"><input id="bath" type="checkbox" checked> 入浴希望あり（実施可否を確認）</label>
           </div>
         </div>
         <div class="sim-result">
@@ -297,7 +304,7 @@
           <div class="total" id="totalPrice">--円</div>
           <ul class="breakdown" id="breakdown"></ul>
           <p class="note note-danger">※あくまでも目安です。正式な料金は契約時・ケアプラン作成時に必ず確認してください。</p>
-          <p class="note">予防通所介護・緩和型は月額目安で表示しています。半日・1日の選択は利用イメージの確認用です。送迎は基本報酬に含まれる前提で、送迎なし等の減算は個別確認としています。</p>
+          <p class="note">予防通所介護・緩和型は契約書記載の月額目安で表示しています。半日・1日の選択は利用イメージの確認用です。送迎なしは契約書記載の「-54円/片道・日（1割負担の場合）」を目安にしています。入浴は契約書の料金表に別加算として記載がないため、金額には加えていません。</p>
         </div>
       </div>
     </div>
@@ -331,6 +338,7 @@
   const service=document.getElementById('serviceType');
   const timeSlot=document.getElementById('timeSlot');
   const burden=document.getElementById('burden');
+  const transport=document.getElementById('transport');
   const lunch=document.getElementById('lunch');
   const bath=document.getElementById('bath');
   const total=document.getElementById('totalPrice');
@@ -342,8 +350,8 @@
     const visits=Number(selected.dataset.visits);
     const insurance=Number(selected.dataset['base'+rate]);
     const lunchFee=lunch.checked?630*visits:0;
-    const bathFee=bath.checked?Math.round(40*10.14*(rate/10)*visits):0;
-    const sum=insurance+lunchFee+bathFee;
+    const transportDeduction=Number(transport.value)*54*rate*visits;
+    const sum=insurance+lunchFee-transportDeduction;
     const timeText=timeSlot.options[timeSlot.selectedIndex].text;
     total.textContent='約 '+yen(sum);
     breakdown.innerHTML=[
@@ -351,12 +359,12 @@
       ['利用時間',timeText],
       ['月の利用回数目安',visits+'回'],
       ['介護保険分（月額目安）',yen(insurance)],
+      ['送迎減算目安',transportDeduction?'-'+yen(transportDeduction):yen(0)],
       ['昼食代目安',yen(lunchFee)],
-      ['入浴加算目安',yen(bathFee)],
-      ['送迎','通常送迎込み。減算は個別確認']
+      ['入浴',bath.checked?'希望あり（料金表に別加算記載なし）':'希望なし・または要相談']
     ].map(([k,v])=>'<li><span>'+k+'</span><b>'+v+'</b></li>').join('');
   }
-  [service,timeSlot,burden,lunch,bath].forEach(el=>el.addEventListener('change',calc));
+  [service,timeSlot,burden,transport,lunch,bath].forEach(el=>el.addEventListener('change',calc));
   calc();
 })();
 </script>
