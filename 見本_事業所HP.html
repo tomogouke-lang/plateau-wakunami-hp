@@ -95,6 +95,21 @@
   .qa .q::before{content:"Q.";color:var(--brand);margin-right:8px;font-weight:800;}
   .qa .a{color:var(--text);font-size:16.5px;padding-left:1.7em;position:relative;}
   .qa .a::before{content:"A.";position:absolute;left:0;color:var(--accent);font-weight:800;}
+  .contact-form{border-top:1px solid var(--line);margin-top:14px;padding-top:18px;display:grid;gap:18px;}
+  .contact-form .field{display:grid;gap:8px;}
+  .contact-form label,.contact-form legend{font-weight:800;color:var(--ink);font-size:17px;}
+  .contact-form fieldset{border:0;margin:0;padding:0;display:grid;gap:10px;}
+  .contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid #cfcfcf;border-radius:8px;background:#fff;padding:13px 14px;font:inherit;font-size:16.5px;color:var(--text);}
+  .contact-form textarea{min-height:170px;resize:vertical;line-height:1.8;}
+  .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:3px solid color-mix(in srgb,var(--brand) 18%,transparent);border-color:var(--brand);}
+  .required{display:inline-block;background:#e74a3b;color:#fff;border-radius:5px;padding:2px 7px;margin-left:8px;font-size:13px;font-weight:800;vertical-align:middle;}
+  .optional{color:var(--sub);font-size:13px;margin-left:8px;font-weight:700;}
+  .choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+  .choice{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;color:var(--text);font-weight:700;}
+  .choice input{width:auto;accent-color:var(--brand);}
+  .contact-note{font-size:14px;color:var(--sub);line-height:1.7;margin:0;}
+  .contact-status{min-height:1.7em;color:var(--brand-dark);font-weight:800;}
+  .hidden-frame{display:none;width:0;height:0;border:0;}
 
   .accept{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;font-size:17px;}
   .accept td{border:1px solid var(--line);padding:13px 16px;}
@@ -276,7 +291,17 @@ window.FACILITY = {
   corporateUrl: "https://pds-plateau.com/",
   contactForm: {
     embedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc2fQBGRrtEQ_hcQpKNSTuAh4gWUToB2twjMLjA_s9LTwaMCw/viewform?embedded=true",
+    actionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc2fQBGRrtEQ_hcQpKNSTuAh4gWUToB2twjMLjA_s9LTwaMCw/formResponse",
     viewUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc2fQBGRrtEQ_hcQpKNSTuAh4gWUToB2twjMLjA_s9LTwaMCw/viewform",
+    entries: {
+      name: "entry.1373925860",
+      phone: "entry.1197322072",
+      email: "entry.136712227",
+      topic: "entry.763073916",
+      method: "entry.1272933334",
+      time: "entry.640689696",
+      detail: "entry.518145779"
+    },
     note: "フォームは準備中です。お急ぎの場合はお電話でお問い合わせください。"
   }
 };
@@ -511,14 +536,91 @@ window.FACILITY = {
   set('akiButtons',b);
   // 地図：embed URLがあればiframe、なければ枠のまま
   if(F.mapEmbedUrl){ set('mapBox',`<iframe src="${esc(F.mapEmbedUrl)}" width="100%" height="100%" style="border:0;min-height:240px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`); }
-  // お問い合わせフォーム：Googleフォームの埋め込みURLがあれば表示。空なら電話案内。
+  // お問い合わせフォーム：見た目はサイト内、送信先は既存のGoogleフォーム。
   const cf=F.contactForm||{};
   const cfBox=document.getElementById('contactFormBox');
   if(cfBox){
-    if(cf.embedUrl){
-      cfBox.style.padding='0';
-      cfBox.style.overflow='hidden';
-      cfBox.innerHTML=`<iframe src="${esc(cf.embedUrl)}" width="100%" height="760" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">読み込んでいます...</iframe>`;
+    if(cf.actionUrl && cf.entries){
+      const e=cf.entries;
+      const topics=['見学・体験について','空き状況について','利用相談','ケアマネジャーからの相談','料金について','その他'];
+      const methods=['電話','メール','どちらでもよい'];
+      const topicHtml=topics.map(function(t){return `<label class="choice"><input type="checkbox" name="${esc(e.topic)}" value="${esc(t)}" data-contact-topic="1"> ${esc(t)}</label>`;}).join('');
+      const methodHtml=methods.map(function(m,i){return `<label class="choice"><input type="radio" name="${esc(e.method)}" value="${esc(m)}" ${i===0?'required':''}> ${esc(m)}</label>`;}).join('');
+      cfBox.innerHTML=`
+        <h3 style="color:var(--brand-dark);">お問い合わせフォーム</h3>
+        <p class="contact-note">見学・体験、空き状況、利用相談などお気軽にお問い合わせください。</p>
+        <form class="contact-form" id="customContactForm" action="${esc(cf.actionUrl)}" method="POST" target="contactSubmitFrame">
+          <div class="field">
+            <label for="contactName">お名前<span class="required">必須</span></label>
+            <input id="contactName" name="${esc(e.name)}" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="contactPhone">電話番号<span class="required">必須</span></label>
+            <input id="contactPhone" name="${esc(e.phone)}" type="tel" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="contactEmail">メールアドレス<span class="optional">任意</span></label>
+            <input id="contactEmail" name="${esc(e.email)}" type="email" autocomplete="email">
+          </div>
+          <fieldset>
+            <legend>お問い合わせ内容<span class="required">必須</span></legend>
+            <div class="choice-grid">${topicHtml}</div>
+          </fieldset>
+          <fieldset>
+            <legend>ご希望の連絡方法<span class="required">必須</span></legend>
+            <div class="choice-grid">${methodHtml}</div>
+          </fieldset>
+          <div class="field">
+            <label for="contactTime">連絡のつきやすい時間帯<span class="optional">任意</span></label>
+            <input id="contactTime" name="${esc(e.time)}" type="text" placeholder="例：平日午前、14時以降など">
+          </div>
+          <div class="field">
+            <label for="contactSubject">お問い合わせ件名<span class="required">必須</span></label>
+            <input id="contactSubject" type="text" required>
+          </div>
+          <div class="field">
+            <label for="contactMessage">ご相談内容・補足<span class="required">必須</span></label>
+            <textarea id="contactMessage" placeholder="お問い合わせ内容をお書きください" required></textarea>
+          </div>
+          <textarea id="contactDetail" name="${esc(e.detail)}" style="display:none;"></textarea>
+          <input type="hidden" name="fvv" value="1">
+          <input type="hidden" name="pageHistory" value="0">
+          <p class="contact-note">送信後、担当者より折り返しご連絡します。お急ぎの場合はお電話ください。</p>
+          <button class="btn btn-brand" type="submit" id="contactSubmit">送信する</button>
+          <p class="contact-status" id="contactStatus" aria-live="polite"></p>
+        </form>
+        <iframe class="hidden-frame" name="contactSubmitFrame" id="contactSubmitFrame" title="お問い合わせ送信先"></iframe>`;
+      const form=document.getElementById('customContactForm');
+      const status=document.getElementById('contactStatus');
+      const submit=document.getElementById('contactSubmit');
+      const frame=document.getElementById('contactSubmitFrame');
+      let submitted=false;
+      if(form && status && submit && frame){
+        form.addEventListener('submit',function(ev){
+          const checked=form.querySelectorAll('input[data-contact-topic="1"]:checked');
+          if(!checked.length){
+            ev.preventDefault();
+            status.textContent='お問い合わせ内容を1つ以上選んでください。';
+            return;
+          }
+          const subject=document.getElementById('contactSubject');
+          const message=document.getElementById('contactMessage');
+          const detail=document.getElementById('contactDetail');
+          if(detail && subject && message){
+            detail.value='件名：'+subject.value.trim()+"\n\n内容：\n"+message.value.trim();
+          }
+          submitted=true;
+          status.textContent='送信中です。';
+          submit.disabled=true;
+        });
+        frame.addEventListener('load',function(){
+          if(!submitted) return;
+          status.textContent='送信しました。お問い合わせありがとうございます。';
+          submit.disabled=false;
+          form.reset();
+          submitted=false;
+        });
+      }
     } else {
       cfBox.innerHTML=`<h3 style="color:var(--brand-dark);">お問い合わせフォーム</h3><p style="margin:8px 0 0;color:var(--sub);">${esc(cf.note||'フォームは準備中です。お急ぎの場合はお電話でお問い合わせください。')}</p>`+(cf.viewUrl?`<p style="margin:14px 0 0;"><a class="btn btn-brand" href="${esc(cf.viewUrl)}" target="_blank" rel="noopener noreferrer">フォームを開く</a></p>`:'');
     }
