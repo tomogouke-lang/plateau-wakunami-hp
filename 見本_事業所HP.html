@@ -82,6 +82,8 @@
 
   .voice{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   .voice .card{display:flex;gap:16px;}
+  .voice .body{flex:1;min-width:0;}
+  .voice .photo{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#e7e3db;margin-top:16px;}
   .avatar{flex:0 0 60px;width:60px;height:60px;border-radius:50%;background:var(--brand-light);color:var(--brand-dark);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;text-align:center;}
   .voice q{font-weight:700;color:var(--brand-dark);display:block;margin-bottom:6px;font-size:18px;}
   .voice .who{font-size:14.5px;color:var(--sub);}
@@ -202,9 +204,9 @@ window.FACILITY = {
   ],
   dayImage: "images/wakunami-day-relax.png", // 本番：食事や活動の実写（人を写さない）／制作画像
   voices: [
-    { quote:"ここに来れば、誰かと話せる時間がある", body:"広い空間でたくさんの方と過ごすことで、家では一人になりがちな時間にも自然と会話が生まれます。顔なじみが増えるほど、通う日が楽しみになっていきます。", who:"ご利用イメージ" },
-    { quote:"仲間がいるから、運動も続けやすい", body:"一人では気が進みにくい体操や機能訓練も、周りに一緒に取り組む人がいると前向きになれます。にぎやかな雰囲気が、体を動かすきっかけになります。", who:"ご利用イメージ" },
-    { quote:"また来たいと思える居場所になる", body:"おしゃべり、昼食、レクリエーションを通して、生活の中に楽しみと役割が増えていきます。涌波本店は、にぎやかさの中で元気をもらえる場所を目指しています。", who:"ご利用イメージ" }
+    { quote:"ここに来れば、誰かと話せる時間がある", body:"お茶を飲みながら顔を合わせる時間が、自然な会話のきっかけになります。顔なじみが増えるほど、外に出る楽しみが少しずつ広がっていきます。", image:"images/voice-talk.jpg", alt:"お茶を飲みながら談笑するご利用イメージ", who:"会話のイメージ" },
+    { quote:"仲間がいるから、運動も続けやすい", body:"椅子に座った体操や機能訓練も、周りに一緒に取り組む仲間がいると前向きになれます。にぎやかな雰囲気が、体を動かすきっかけになります。", image:"images/voice-exercise.jpg", alt:"仲間と一緒に体操するご利用イメージ", who:"運動のイメージ" },
+    { quote:"また来たいと思える居場所になる", body:"広い空間でおしゃべりや趣味活動を楽しむことで、生活の中に役割と楽しみが増えていきます。涌波本店は、元気をもらえる居場所を目指しています。", image:"images/voice-place.jpg", alt:"広い空間で仲間と過ごすご利用イメージ", who:"居場所のイメージ" }
   ],
   voicesNote: "",
   faq: [
@@ -286,7 +288,7 @@ window.FACILITY = {
   <span class="links">
     <a class="link" href="#reason">選ばれる理由</a>
     <a class="link" href="#service">サービス</a>
-    <a class="link" href="#voice">ご利用者の声</a>
+    <a class="link" href="#voice">利用イメージ</a>
     <a class="link" href="#faq">よくある質問</a>
     <a class="link" href="#guide">ご利用案内</a>
     <a class="link" href="#aki">空き状況</a>
@@ -454,7 +456,7 @@ window.FACILITY = {
   set('day',(F.day||[]).map(d=>`<li><b>${esc(d.t)}</b><span>${esc(d.d)}</span></li>`).join(''));
   const dayImg=document.getElementById('dayImg'); if(dayImg&&F.dayImage) dayImg.src=F.dayImage;
   if((F.voices||[]).length){
-    set('voices',(F.voices||[]).map(v=>`<div class="card"><div class="avatar">POINT</div><div><q>${esc(v.quote)}</q><p style="margin:0;">${esc(v.body)}</p><span class="who">${esc(v.who)}</span></div></div>`).join(''));
+    set('voices',(F.voices||[]).map(v=>`<div class="card"><div class="avatar">POINT</div><div class="body"><q>${esc(v.quote)}</q><p style="margin:0;">${esc(v.body)}</p>${v.image?`<div class="photo"><img src="${esc(v.image)}" alt="${esc(v.alt||v.quote)}" loading="lazy" decoding="async"></div>`:''}<span class="who">${esc(v.who)}</span></div></div>`).join(''));
   } else {
     const vl=document.getElementById('voiceLead'); if(vl) vl.classList.add('hidden');
     set('voices',`<div class="prep">${esc(F.voicesNote||'現在、ご利用者さまの声を集めています。準備中です。')}</div>`);
