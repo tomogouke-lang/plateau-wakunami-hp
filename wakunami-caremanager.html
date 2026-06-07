@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ケアマネ説明用｜プラトーケアセンター涌波本店</title>
+<style>
+  :root{
+    --brand:#2E7DA4;
+    --brand-dark:#1F536C;
+    --ink:#263845;
+    --text:#3c3a38;
+    --sub:#6f7478;
+    --bg:#F8F7F3;
+    --panel:#FFFFFF;
+    --soft:#EAF4F8;
+    --line:#DCD8CF;
+    --accent:#E8954E;
+    --ok:#2E8B57;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans JP","Hiragino Sans",sans-serif;line-height:1.8;font-size:17px;-webkit-font-smoothing:antialiased;}
+  img{display:block;width:100%;height:100%;object-fit:cover;}
+  a{color:var(--brand);}
+  .inner{max-width:1120px;margin:0 auto;padding:0 28px;}
+  .nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);}
+  .nav .inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand{font-weight:800;color:var(--brand-dark);font-size:18px;line-height:1.35;}
+  .navlinks{display:flex;align-items:center;gap:14px;white-space:nowrap;}
+  .navlinks a{text-decoration:none;color:var(--ink);font-weight:800;font-size:14px;}
+  .navlinks .cta{background:var(--accent);color:#fff;border-radius:999px;padding:9px 14px;}
+  .hero{position:relative;min-height:620px;background:url("images/wakunami-hero.jpg") center/cover no-repeat;display:flex;align-items:flex-end;}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,22,30,.88),rgba(11,22,30,.58) 52%,rgba(11,22,30,.22));}
+  .hero .inner{position:relative;color:#fff;padding-top:80px;padding-bottom:72px;}
+  .kicker{letter-spacing:.12em;font-size:13px;font-weight:900;color:#D6EEF8;}
+  h1,h2,h3{margin:0;color:var(--ink);line-height:1.38;}
+  .hero h1{color:#fff;font-size:44px;font-weight:900;max-width:760px;margin:12px 0 16px;text-shadow:0 2px 12px rgba(0,0,0,.5);}
+  .hero p{font-size:20px;max-width:690px;margin:0 0 24px;text-shadow:0 1px 8px rgba(0,0,0,.45);}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:900;border:0;cursor:pointer;font:inherit;}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(232,149,78,.32);}
+  .btn-light{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.78);}
+  section{padding:66px 0;}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:24px;}
+  .section-head p{margin:8px 0 0;color:var(--sub);max-width:680px;}
+  .eyebrow{display:block;color:var(--brand);letter-spacing:.12em;font-size:13px;font-weight:900;margin-bottom:4px;}
+  .h2{font-size:30px;color:var(--brand-dark);}
+  .video-panel{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:stretch;}
+  .video-box{position:relative;min-height:430px;border-radius:18px;overflow:hidden;background:#111;}
+  .video-box::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.62),rgba(0,0,0,.05) 55%);}
+  .play{position:absolute;left:32px;bottom:32px;z-index:2;display:flex;align-items:center;gap:14px;color:#fff;font-weight:900;font-size:21px;}
+  .play .circle{width:62px;height:62px;border-radius:50%;background:#fff;color:var(--brand-dark);display:grid;place-items:center;font-size:28px;box-shadow:0 8px 22px rgba(0,0,0,.28);}
+  .story{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;}
+  .story ol{margin:14px 0 0;padding-left:1.3em;}
+  .story li{margin:10px 0;font-weight:700;}
+  .image-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .image-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+  .image-card .pic{height:250px;background:#e8e4dc;}
+  .image-card .body{padding:20px;}
+  .image-card h3{font-size:21px;color:var(--brand-dark);margin-bottom:6px;}
+  .image-card p{margin:0;color:var(--sub);}
+  .fit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .fit-item{background:#fff;border:1px solid var(--line);border-left:6px solid var(--ok);border-radius:12px;padding:16px 18px;font-weight:800;}
+  .timeline{display:grid;gap:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+  .time-row{display:grid;grid-template-columns:150px 1fr;border-bottom:1px dashed var(--line);}
+  .time-row:last-child{border-bottom:0;}
+  .time-row b{background:var(--soft);color:var(--brand-dark);padding:17px 20px;font-size:20px;}
+  .time-row span{padding:17px 20px;font-weight:700;}
+  .sim-wrap{display:grid;grid-template-columns:.86fr 1.14fr;gap:24px;align-items:start;}
+  .sim-form,.sim-result{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;}
+  .form-grid{display:grid;gap:16px;}
+  label{font-weight:900;color:var(--ink);}
+  select,input[type="checkbox"]{font:inherit;}
+  select{width:100%;margin-top:6px;border:1px solid #cfcfcf;border-radius:10px;background:#fff;padding:12px 13px;}
+  .check{display:flex;align-items:center;gap:10px;font-weight:800;}
+  .check input{width:20px;height:20px;accent-color:var(--brand);}
+  .total{font-size:42px;font-weight:900;color:var(--brand-dark);line-height:1.2;margin:8px 0;}
+  .breakdown{margin:14px 0 0;padding:0;list-style:none;border-top:1px solid var(--line);}
+  .breakdown li{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px dashed var(--line);}
+  .note{font-size:14px;color:var(--sub);line-height:1.7;margin:14px 0 0;}
+  .contact-band{background:var(--brand-dark);color:#fff;}
+  .contact-band h2{color:#fff;}
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;}
+  .phone{font-size:34px;font-weight:900;margin:10px 0;}
+  .phone a{color:#fff;text-decoration:none;border-bottom:2px dotted rgba(255,255,255,.65);}
+  .links-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.24);border-radius:16px;padding:22px;}
+  .links-box a{display:block;color:#fff;font-weight:900;text-decoration:none;margin:10px 0;}
+  footer{padding:26px 0;color:var(--sub);font-size:13px;text-align:center;background:#fff;}
+  @media(max-width:980px){
+    .navlinks{display:none;}
+    .hero{min-height:560px;}
+    .hero h1{font-size:34px;}
+    .video-panel,.sim-wrap,.contact-grid{grid-template-columns:1fr;}
+    .image-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){
+    body{font-size:16px;}
+    .inner{padding:0 20px;}
+    section{padding:46px 0;}
+    .hero h1{font-size:30px;}
+    .hero p{font-size:17px;}
+    .h2{font-size:25px;}
+    .video-box{min-height:300px;}
+    .fit-grid{grid-template-columns:1fr;}
+    .time-row{grid-template-columns:96px 1fr;}
+    .time-row b{font-size:17px;padding:14px 12px;}
+    .time-row span{padding:14px 14px;}
+    .total{font-size:34px;}
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="inner">
+    <div class="brand">プラトーケアセンター涌波本店<br>ケアマネ説明用</div>
+    <div class="navlinks">
+      <a href="#what">施設の内容</a>
+      <a href="#fit">合う方</a>
+      <a href="#day">1日の流れ</a>
+      <a href="#price">料金</a>
+      <a class="cta" href="#contact">相談する</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="inner">
+    <span class="kicker">CARE MANAGER GUIDE</span>
+    <h1>画面を見せるだけで、涌波本店の雰囲気と利用イメージが伝わる説明ページ</h1>
+    <p>広い空間で、仲間と過ごしながら運動・入浴・昼食ができる金沢市涌波のデイサービスです。</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#price">料金を見積もる</a>
+      <a class="btn btn-light" href="#what">どんな施設か見る</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="movie">
+    <div class="inner">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">MOVIE</span>
+          <h2 class="h2">まずは動画のように、雰囲気から伝える</h2>
+          <p>説明時は、細かい制度より先に「ここなら行けそう」と感じてもらうことを重視します。</p>
+        </div>
+      </div>
+      <div class="video-panel">
+        <div class="video-box">
+          <img src="images/voice-place.jpg" alt="広い空間で仲間と過ごす利用イメージ">
+          <div class="play"><span class="circle">▶</span><span>紹介動画 30〜45秒用</span></div>
+        </div>
+        <div class="story">
+          <h3>動画で伝える順番</h3>
+          <ol>
+            <li>広い空間で過ごせる</li>
+            <li>仲間と話す時間がある</li>
+            <li>体操や機能訓練に参加できる</li>
+            <li>昼食・入浴・送迎も相談できる</li>
+            <li>まずは見学・体験から始められる</li>
+          </ol>
+          <p class="note">実動画を作成したら、この枠に差し替えて使います。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="what" style="background:var(--soft);">
+    <div class="inner">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">WHAT WE DO</span>
+          <h2 class="h2">何をする施設か、3枚で説明</h2>
+        </div>
+      </div>
+      <div class="image-grid">
+        <article class="image-card">
+          <div class="pic"><img src="images/voice-talk.jpg" alt="お茶を飲みながら談笑する利用イメージ"></div>
+          <div class="body">
+            <h3>人と話す時間</h3>
+            <p>家では一人になりがちな時間にも、顔なじみと自然に会話が生まれます。</p>
+          </div>
+        </article>
+        <article class="image-card">
+          <div class="pic"><img src="images/voice-exercise.jpg" alt="椅子に座って体操する利用イメージ"></div>
+          <div class="body">
+            <h3>運動・機能訓練</h3>
+            <p>椅子での体操や機能訓練を、にぎやかな雰囲気の中で続けやすくします。</p>
+          </div>
+        </article>
+        <article class="image-card">
+          <div class="pic"><img src="images/wakunami-exterior-bright.jpg" alt="建物外観"></div>
+          <div class="body">
+            <h3>入浴・昼食・送迎</h3>
+            <p>金沢市内の送迎、昼食、入浴介助も相談できます。生活全体を支えます。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="fit">
+    <div class="inner">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">GOOD FIT</span>
+          <h2 class="h2">こんな方に合いやすいです</h2>
+        </div>
+      </div>
+      <div class="fit-grid">
+        <div class="fit-item">家にこもりがちで、人と話す機会が少ない方</div>
+        <div class="fit-item">にぎやかな場所や仲間との時間が好きな方</div>
+        <div class="fit-item">一人では運動が続きにくい方</div>
+        <div class="fit-item">入浴や外出に不安があり、家族の負担を軽くしたい方</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="day" style="background:var(--soft);">
+    <div class="inner">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">A DAY</span>
+          <h2 class="h2">1日の流れ</h2>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="time-row"><b>8:30〜</b><span>ご自宅までお迎え</span></div>
+        <div class="time-row"><b>9:30〜</b><span>体温と血圧等の健康チェック</span></div>
+        <div class="time-row"><b>午前</b><span>機能訓練・体操・入浴・リラクゼーション</span></div>
+        <div class="time-row"><b>お昼</b><span>手作りの昼食。きざみ・とろみも対応します</span></div>
+        <div class="time-row"><b>午後</b><span>レクリエーション・脳トレ・趣味活動</span></div>
+        <div class="time-row"><b>14:30</b><span>ご自宅までお送り</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="inner">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">PRICE</span>
+          <h2 class="h2">料金シミュレーター</h2>
+          <p>ケアマネ説明時の目安確認用です。正式な金額は介護度・加算・負担割合で変わります。</p>
+        </div>
+      </div>
+      <div class="sim-wrap">
+        <div class="sim-form">
+          <div class="form-grid">
+            <label>介護度
+              <select id="careLevel">
+                <option value="797">要介護1</option>
+                <option value="917">要介護2</option>
+                <option value="1039">要介護3</option>
+                <option value="1157">要介護4</option>
+                <option value="1279">要介護5</option>
+              </select>
+            </label>
+            <label>負担割合
+              <select id="burden">
+                <option value="1">1割</option>
+                <option value="2">2割</option>
+                <option value="3">3割</option>
+              </select>
+            </label>
+            <label>利用回数
+              <select id="weekly">
+                <option value="1">週1回</option>
+                <option value="2">週2回</option>
+                <option value="3" selected>週3回</option>
+                <option value="4">週4回</option>
+                <option value="5">週5回</option>
+                <option value="6">週6回</option>
+              </select>
+            </label>
+            <label class="check"><input id="lunch" type="checkbox" checked> 昼食あり（630円/食）</label>
+            <label class="check"><input id="bath" type="checkbox" checked> 入浴相談あり</label>
+          </div>
+        </div>
+        <div class="sim-result">
+          <h3>月の目安</h3>
+          <div class="total" id="totalPrice">--円</div>
+          <ul class="breakdown" id="breakdown"></ul>
+          <p class="note">通所介護5〜6時間の1割負担目安を基準に計算しています。入浴は利用可否の相談項目として表示し、実際の加算額はケアプラン・体制により確認します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-band">
+    <div class="inner">
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow" style="color:#bfe5f4;">CONTACT</span>
+          <h2 class="h2">見学・体験の相談へつなげる</h2>
+          <p>ご本人・ご家族への説明時に、このページをご利用ください。気になる方は見学や体験から相談できます。</p>
+          <div class="phone"><a href="tel:0762624556">076-262-4556</a></div>
+        </div>
+        <div class="links-box">
+          <a href="wakunami.html">一般向けLPを開く</a>
+          <a href="見本_事業所HP.html#access">お問い合わせフォームを開く</a>
+          <a href="見本_事業所HP.html#aki">空き状況を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  プラトーケアセンター涌波本店 ケアマネ説明用ページ / 料金は目安です。正式な内容はお問い合わせください。
+</footer>
+
+<script>
+(function(){
+  const care=document.getElementById('careLevel');
+  const burden=document.getElementById('burden');
+  const weekly=document.getElementById('weekly');
+  const lunch=document.getElementById('lunch');
+  const bath=document.getElementById('bath');
+  const total=document.getElementById('totalPrice');
+  const breakdown=document.getElementById('breakdown');
+  const yen=n=>Math.round(n).toLocaleString('ja-JP')+'円';
+  function calc(){
+    const visits=Math.round(Number(weekly.value)*4.3);
+    const insurance=Number(care.value)*Number(burden.value)*visits;
+    const lunchFee=lunch.checked?630*visits:0;
+    const sum=insurance+lunchFee;
+    total.textContent='約 '+yen(sum);
+    breakdown.innerHTML=[
+      ['月の利用回数目安',visits+'回'],
+      ['介護保険分目安',yen(insurance)],
+      ['昼食代目安',yen(lunchFee)],
+      ['入浴',bath.checked?'相談あり（正式額は確認）':'なし・または要相談']
+    ].map(([k,v])=>'<li><span>'+k+'</span><b>'+v+'</b></li>').join('');
+  }
+  [care,burden,weekly,lunch,bath].forEach(el=>el.addEventListener('change',calc));
+  calc();
+})();
+</script>
+</body>
+</html>
