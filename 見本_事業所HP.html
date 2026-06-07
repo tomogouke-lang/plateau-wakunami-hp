@@ -456,7 +456,7 @@ window.FACILITY = {
   set('day',(F.day||[]).map(d=>`<li><b>${esc(d.t)}</b><span>${esc(d.d)}</span></li>`).join(''));
   const dayImg=document.getElementById('dayImg'); if(dayImg&&F.dayImage) dayImg.src=F.dayImage;
   if((F.voices||[]).length){
-    set('voices',(F.voices||[]).map(v=>`<div class="card"><div class="avatar">POINT</div><div class="body"><q>${esc(v.quote)}</q><p style="margin:0;">${esc(v.body)}</p>${v.image?`<div class="photo"><img src="${esc(v.image)}" alt="${esc(v.alt||v.quote)}" loading="lazy" decoding="async"></div>`:''}<span class="who">${esc(v.who)}</span></div></div>`).join(''));
+    set('voices',(F.voices||[]).map(v=>`<div class="card"><div class="avatar">POINT</div><div class="body"><q>${esc(v.quote)}</q><p style="margin:0;">${esc(v.body)}</p>${v.image?`<div class="photo"><img src="${esc(v.image)}" alt="${esc(v.alt||v.quote)}" loading="eager" decoding="async"></div>`:''}<span class="who">${esc(v.who)}</span></div></div>`).join(''));
   } else {
     const vl=document.getElementById('voiceLead'); if(vl) vl.classList.add('hidden');
     set('voices',`<div class="prep">${esc(F.voicesNote||'現在、ご利用者さまの声を集めています。準備中です。')}</div>`);
