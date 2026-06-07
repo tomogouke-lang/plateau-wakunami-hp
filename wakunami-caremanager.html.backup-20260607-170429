@@ -82,7 +82,6 @@
   .breakdown{margin:14px 0 0;padding:0;list-style:none;border-top:1px solid var(--line);}
   .breakdown li{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px dashed var(--line);}
   .note{font-size:14px;color:var(--sub);line-height:1.7;margin:14px 0 0;}
-  .note-danger{color:#b42318;font-weight:900;}
   .contact-band{background:var(--brand-dark);color:#fff;}
   .contact-band h2{color:#fff;}
   .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;}
@@ -261,24 +260,19 @@
         <div>
           <span class="eyebrow">PRICE</span>
           <h2 class="h2">料金シミュレーター</h2>
-          <p>予防通所介護・緩和型の目安確認用です。正式な金額は区分・加算・負担割合で変わります。</p>
+          <p>ケアマネ説明時の目安確認用です。正式な金額は介護度・加算・負担割合で変わります。</p>
         </div>
       </div>
       <div class="sim-wrap">
         <div class="sim-form">
           <div class="form-grid">
-            <label>利用区分
-              <select id="serviceType">
-                <option value="preventive1" data-base1="2239" data-base2="4478" data-base3="6717" data-visits="4">予防通所介護（週1回程度）</option>
-                <option value="preventive2" data-base1="4351" data-base2="8702" data-base3="13053" data-visits="8">予防通所介護（週2回程度）</option>
-                <option value="relief1" data-base1="1744" data-base2="3488" data-base3="5232" data-visits="4">緩和型（週1回程度）</option>
-                <option value="relief2" data-base1="3357" data-base2="6713" data-base3="10069" data-visits="8">緩和型（週2回程度）</option>
-              </select>
-            </label>
-            <label>利用時間
-              <select id="timeSlot">
-                <option value="half">半日（3時間以上4時間未満）</option>
-                <option value="day" selected>1日（5時間以上6時間未満）</option>
+            <label>介護度
+              <select id="careLevel">
+                <option value="797">要介護1</option>
+                <option value="917">要介護2</option>
+                <option value="1039">要介護3</option>
+                <option value="1157">要介護4</option>
+                <option value="1279">要介護5</option>
               </select>
             </label>
             <label>負担割合
@@ -288,16 +282,25 @@
                 <option value="3">3割</option>
               </select>
             </label>
+            <label>利用回数
+              <select id="weekly">
+                <option value="1">週1回</option>
+                <option value="2">週2回</option>
+                <option value="3" selected>週3回</option>
+                <option value="4">週4回</option>
+                <option value="5">週5回</option>
+                <option value="6">週6回</option>
+              </select>
+            </label>
             <label class="check"><input id="lunch" type="checkbox" checked> 昼食あり（630円/食）</label>
-            <label class="check"><input id="bath" type="checkbox" checked> 入浴あり（入浴加算を目安計算）</label>
+            <label class="check"><input id="bath" type="checkbox" checked> 入浴相談あり</label>
           </div>
         </div>
         <div class="sim-result">
           <h3>月の目安</h3>
           <div class="total" id="totalPrice">--円</div>
           <ul class="breakdown" id="breakdown"></ul>
-          <p class="note note-danger">※あくまでも目安です。正式な料金は契約時・ケアプラン作成時に必ず確認してください。</p>
-          <p class="note">予防通所介護・緩和型は月額目安で表示しています。半日・1日の選択は利用イメージの確認用です。送迎は基本報酬に含まれる前提で、送迎なし等の減算は個別確認としています。</p>
+          <p class="note">通所介護5〜6時間の1割負担目安を基準に計算しています。入浴は利用可否の相談項目として表示し、実際の加算額はケアプラン・体制により確認します。</p>
         </div>
       </div>
     </div>
@@ -328,35 +331,28 @@
 
 <script>
 (function(){
-  const service=document.getElementById('serviceType');
-  const timeSlot=document.getElementById('timeSlot');
+  const care=document.getElementById('careLevel');
   const burden=document.getElementById('burden');
+  const weekly=document.getElementById('weekly');
   const lunch=document.getElementById('lunch');
   const bath=document.getElementById('bath');
   const total=document.getElementById('totalPrice');
   const breakdown=document.getElementById('breakdown');
   const yen=n=>Math.round(n).toLocaleString('ja-JP')+'円';
   function calc(){
-    const selected=service.options[service.selectedIndex];
-    const rate=Number(burden.value);
-    const visits=Number(selected.dataset.visits);
-    const insurance=Number(selected.dataset['base'+rate]);
+    const visits=Math.round(Number(weekly.value)*4.3);
+    const insurance=Number(care.value)*Number(burden.value)*visits;
     const lunchFee=lunch.checked?630*visits:0;
-    const bathFee=bath.checked?Math.round(40*10.14*(rate/10)*visits):0;
-    const sum=insurance+lunchFee+bathFee;
-    const timeText=timeSlot.options[timeSlot.selectedIndex].text;
+    const sum=insurance+lunchFee;
     total.textContent='約 '+yen(sum);
     breakdown.innerHTML=[
-      ['利用区分',selected.text],
-      ['利用時間',timeText],
       ['月の利用回数目安',visits+'回'],
-      ['介護保険分（月額目安）',yen(insurance)],
+      ['介護保険分目安',yen(insurance)],
       ['昼食代目安',yen(lunchFee)],
-      ['入浴加算目安',yen(bathFee)],
-      ['送迎','通常送迎込み。減算は個別確認']
+      ['入浴',bath.checked?'相談あり（正式額は確認）':'なし・または要相談']
     ].map(([k,v])=>'<li><span>'+k+'</span><b>'+v+'</b></li>').join('');
   }
-  [service,timeSlot,burden,lunch,bath].forEach(el=>el.addEventListener('change',calc));
+  [care,burden,weekly,lunch,bath].forEach(el=>el.addEventListener('change',calc));
   calc();
 })();
 </script>
