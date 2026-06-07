@@ -30,17 +30,20 @@
   .navlinks{display:flex;align-items:center;gap:14px;white-space:nowrap;}
   .navlinks a{text-decoration:none;color:var(--ink);font-weight:800;font-size:14px;}
   .navlinks .cta{background:var(--accent);color:#fff;border-radius:999px;padding:9px 14px;}
+  .mobile-actions{display:none;}
   .hero{position:relative;min-height:620px;background:url("images/wakunami-hero.jpg") center/cover no-repeat;display:flex;align-items:flex-end;}
   .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,22,30,.88),rgba(11,22,30,.58) 52%,rgba(11,22,30,.22));}
   .hero .inner{position:relative;color:#fff;padding-top:80px;padding-bottom:72px;}
   .kicker{letter-spacing:.12em;font-size:13px;font-weight:900;color:#D6EEF8;}
   h1,h2,h3{margin:0;color:var(--ink);line-height:1.38;}
   .hero h1{color:#fff;font-size:44px;font-weight:900;max-width:760px;margin:12px 0 16px;text-shadow:0 2px 12px rgba(0,0,0,.5);}
-  .hero p{font-size:20px;max-width:690px;margin:0 0 24px;text-shadow:0 1px 8px rgba(0,0,0,.45);}
+  .hero p{font-size:20px;max-width:690px;margin:0 0 18px;text-shadow:0 1px 8px rgba(0,0,0,.45);}
+  .use-case{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 13px;margin:0 0 22px;color:#fff;font-weight:900;}
   .actions{display:flex;flex-wrap:wrap;gap:12px;}
   .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:900;border:0;cursor:pointer;font:inherit;}
   .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(232,149,78,.32);}
   .btn-light{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.78);}
+  .btn-call{background:#fff;color:var(--brand-dark);}
   section{padding:66px 0;}
   .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:24px;}
   .section-head p{margin:8px 0 0;color:var(--sub);max-width:680px;}
@@ -95,11 +98,16 @@
     .image-grid{grid-template-columns:1fr;}
   }
   @media(max-width:640px){
-    body{font-size:16px;}
+    body{font-size:16px;padding-bottom:76px;}
     .inner{padding:0 20px;}
     section{padding:46px 0;}
-    .hero h1{font-size:30px;}
+    .brand{font-size:16px;}
+    .hero{min-height:520px;}
+    .hero .inner{padding-top:58px;padding-bottom:48px;}
+    .hero h1{font-size:29px;}
     .hero p{font-size:17px;}
+    .use-case{font-size:14px;line-height:1.5;border-radius:12px;align-items:flex-start;}
+    .actions .btn{width:100%;margin:0;}
     .h2{font-size:25px;}
     .video-box{min-height:300px;}
     .fit-grid{grid-template-columns:1fr;}
@@ -107,6 +115,9 @@
     .time-row b{font-size:17px;padding:14px 12px;}
     .time-row span{padding:14px 14px;}
     .total{font-size:34px;}
+    .mobile-actions{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:rgba(255,255,255,.96);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.12);}
+    .mobile-actions a{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:12px;background:var(--brand-dark);color:#fff;text-decoration:none;font-size:14px;font-weight:900;}
+    .mobile-actions a:last-child{background:var(--accent);}
   }
 </style>
 </head>
@@ -123,15 +134,22 @@
     </div>
   </div>
 </nav>
+<div class="mobile-actions" aria-label="スマホ説明用の固定メニュー">
+  <a href="#what">内容</a>
+  <a href="#price">料金</a>
+  <a href="#contact">相談</a>
+</div>
 
 <header class="hero">
   <div class="inner">
     <span class="kicker">CARE MANAGER GUIDE</span>
-    <h1>画面を見せるだけで、涌波本店の雰囲気と利用イメージが伝わる説明ページ</h1>
+    <h1>スマホやiPadで見せながら、涌波本店を説明できるページ</h1>
     <p>広い空間で、仲間と過ごしながら運動・入浴・昼食ができる金沢市涌波のデイサービスです。</p>
+    <div class="use-case">ケアマネさんはスマホで。事業所ではiPadや携帯で。ご本人・ご家族へその場で見せられます。</div>
     <div class="actions">
       <a class="btn btn-primary" href="#price">料金を見積もる</a>
       <a class="btn btn-light" href="#what">どんな施設か見る</a>
+      <a class="btn btn-call" href="tel:0762624556">電話する</a>
     </div>
   </div>
 </header>
