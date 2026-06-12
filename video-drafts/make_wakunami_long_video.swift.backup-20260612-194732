@@ -1,0 +1,258 @@
+import AppKit
+import AVFoundation
+import CoreImage
+import Foundation
+import Vision
+
+struct Scene {
+    let imageName: String?
+    let title: String
+    let subtitle: String
+    let seconds: Double
+    let rotateDegrees: CGFloat
+}
+
+let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
+let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft.mp4")
+let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.aiff")
+
+let width = 1920
+let height = 1080
+let frameSize = NSSize(width: width, height: height)
+
+let scenes: [Scene] = [
+    Scene(imageName: "image1.jpeg", title: "涌波での一日の流れ", subtitle: "初めての方にも分かりやすく、送迎から帰宅までをご紹介します。", seconds: 7, rotateDegrees: 0),
+    Scene(imageName: "image1.jpeg", title: "建物・入口", subtitle: "まずは、見学だけでも大丈夫です。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image3.png", title: "送迎", subtitle: "朝はご自宅までお迎えに伺います。乗り降りも職員がそばでお手伝いします。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "image4.jpeg", title: "到着・健康確認", subtitle: "到着後は体調を確認し、その日の様子に合わせて無理のない過ごし方を考えます。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "image2.jpeg", title: "集団運動", subtitle: "体操や運動は、できることを続けるための時間です。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "image8.jpeg", title: "個別運動", subtitle: "一人ひとりの状態に合わせて、個別の運動にも取り組みます。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image9.jpeg", title: "歩行練習", subtitle: "職員がそばにつき、安全に配慮しながら行います。", seconds: 8, rotateDegrees: 90),
+    Scene(imageName: "image10.jpeg", title: "できることを続ける", subtitle: "無理をせず、その方のペースを大切にします。", seconds: 8, rotateDegrees: 90),
+    Scene(imageName: "image5.jpeg", title: "リラクゼーション", subtitle: "足湯など、体を休める時間もあります。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image6.jpeg", title: "ゆったり過ごす時間", subtitle: "運動だけでなく、落ち着いて過ごせる時間も大切にしています。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image7.jpeg", title: "ウォーターベッド・メドマー", subtitle: "体調や希望に合わせて、リラクゼーション機器も利用できます。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image13.jpeg", title: "入浴", subtitle: "入浴は安全に配慮し、必要なところを職員がお手伝いします。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "image14.jpeg", title: "昼食", subtitle: "昼食は、落ち着いて食べられる時間にしています。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image15.jpeg", title: "食事の見守り", subtitle: "食べやすさや体調の変化にも気を配ります。", seconds: 8, rotateDegrees: 90),
+    Scene(imageName: "image16.jpeg", title: "午後の活動", subtitle: "午後は趣味活動やレクリエーションなど、その方に合わせた過ごし方を大切にしています。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "image17.jpeg", title: "脳トレ・趣味活動", subtitle: "手先を使う活動や考える活動も、無理のない範囲で行います。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image18.jpeg", title: "それぞれのペースで", subtitle: "参加する日も、静かに過ごす日もあります。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image19.jpeg", title: "季節の行事", subtitle: "いつもと少し違う、大きめのレクリエーションを行うこともあります。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "image3.png", title: "帰宅", subtitle: "夕方はご自宅までお送りします。必要に応じて、その日の様子もお伝えします。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "image1.jpeg", title: "見学だけでも大丈夫です", subtitle: "涌波のホームページから、施設の様子をご確認ください。\ntomogouke-lang.github.io/plateau-wakunami-hp/", seconds: 9, rotateDegrees: 0),
+]
+
+func loadImage(_ scene: Scene) -> NSImage? {
+    guard let name = scene.imageName else { return nil }
+    guard let image = NSImage(contentsOf: imageDir.appendingPathComponent(name)) else { return nil }
+    if scene.rotateDegrees == 0 { return image }
+    let radians = scene.rotateDegrees * .pi / 180
+    let old = image.size
+    let newSize = scene.rotateDegrees.truncatingRemainder(dividingBy: 180) == 0 ? old : NSSize(width: old.height, height: old.width)
+    let rotated = NSImage(size: newSize)
+    rotated.lockFocus()
+    let transform = NSAffineTransform()
+    transform.translateX(by: newSize.width / 2, yBy: newSize.height / 2)
+    transform.rotate(byRadians: radians)
+    transform.translateX(by: -old.width / 2, yBy: -old.height / 2)
+    transform.concat()
+    image.draw(in: NSRect(origin: .zero, size: old))
+    rotated.unlockFocus()
+    return rotated
+}
+
+func aspectFill(_ source: NSSize, into target: NSSize) -> NSRect {
+    let scale = max(target.width / source.width, target.height / source.height)
+    let size = NSSize(width: source.width * scale, height: source.height * scale)
+    return NSRect(x: (target.width - size.width) / 2, y: (target.height - size.height) / 2, width: size.width, height: size.height)
+}
+
+func aspectFit(_ source: NSSize, into target: NSSize) -> NSRect {
+    let scale = min(target.width / source.width, target.height / source.height)
+    let size = NSSize(width: source.width * scale, height: source.height * scale)
+    return NSRect(x: (target.width - size.width) / 2, y: (target.height - size.height) / 2, width: size.width, height: size.height)
+}
+
+func drawWrappedText(_ text: String, rect: NSRect, font: NSFont, color: NSColor, alignment: NSTextAlignment = .left) {
+    let paragraph = NSMutableParagraphStyle()
+    paragraph.alignment = alignment
+    paragraph.lineBreakMode = .byWordWrapping
+    paragraph.lineSpacing = 6
+    let attrs: [NSAttributedString.Key: Any] = [
+        .font: font,
+        .foregroundColor: color,
+        .paragraphStyle: paragraph,
+    ]
+    (text as NSString).draw(with: rect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: attrs)
+}
+
+func detectFaces(in image: NSImage) -> [CGRect] {
+    guard let tiff = image.tiffRepresentation,
+          let bitmap = NSBitmapImageRep(data: tiff),
+          let cg = bitmap.cgImage else { return [] }
+    let request = VNDetectFaceRectanglesRequest()
+    let handler = VNImageRequestHandler(cgImage: cg, orientation: .up, options: [:])
+    try? handler.perform([request])
+    return request.results?.map { $0.boundingBox } ?? []
+}
+
+func renderScene(_ scene: Scene) -> NSImage {
+    let canvas = NSImage(size: frameSize)
+    canvas.lockFocus()
+    NSColor(calibratedRed: 0.94, green: 0.95, blue: 0.92, alpha: 1).setFill()
+    NSRect(origin: .zero, size: frameSize).fill()
+
+    if let image = loadImage(scene) {
+        let fillRect = aspectFill(image.size, into: frameSize)
+        image.draw(in: fillRect, from: .zero, operation: .sourceOver, fraction: 0.30)
+        NSColor(calibratedWhite: 1, alpha: 0.45).setFill()
+        NSRect(origin: .zero, size: frameSize).fill()
+
+        let photoRect = aspectFit(image.size, into: NSSize(width: 1500, height: 800))
+            .offsetBy(dx: (frameSize.width - 1500) / 2, dy: 170)
+        image.draw(in: photoRect, from: .zero, operation: .sourceOver, fraction: 1)
+
+        let faces = detectFaces(in: image)
+        for face in faces {
+            let x = photoRect.origin.x + face.origin.x * photoRect.width
+            let y = photoRect.origin.y + face.origin.y * photoRect.height
+            let w = face.width * photoRect.width
+            let h = face.height * photoRect.height
+            let pad = max(w, h) * 0.35
+            let faceRect = NSRect(x: x - pad / 2, y: y - pad / 2, width: w + pad, height: h + pad)
+            NSColor(calibratedWhite: 0.88, alpha: 0.96).setFill()
+            NSBezierPath(ovalIn: faceRect).fill()
+        }
+    }
+
+    NSColor(calibratedRed: 0.08, green: 0.20, blue: 0.18, alpha: 0.88).setFill()
+    NSRect(x: 0, y: 0, width: frameSize.width, height: 150).fill()
+    drawWrappedText(scene.title, rect: NSRect(x: 120, y: 80, width: 1680, height: 50), font: NSFont.boldSystemFont(ofSize: 38), color: .white)
+    drawWrappedText(scene.subtitle, rect: NSRect(x: 120, y: 22, width: 1680, height: 58), font: NSFont.systemFont(ofSize: 28), color: NSColor(calibratedWhite: 1, alpha: 0.94))
+    canvas.unlockFocus()
+    return canvas
+}
+
+func pixelBuffer(from image: NSImage, pool: CVPixelBufferPool?) -> CVPixelBuffer {
+    var buffer: CVPixelBuffer?
+    let status: CVReturn
+    if let pool {
+        status = CVPixelBufferPoolCreatePixelBuffer(nil, pool, &buffer)
+    } else {
+        let attrs: [String: Any] = [
+            kCVPixelBufferCGImageCompatibilityKey as String: true,
+            kCVPixelBufferCGBitmapContextCompatibilityKey as String: true,
+        ]
+        status = CVPixelBufferCreate(kCFAllocatorDefault, width, height, kCVPixelFormatType_32BGRA, attrs as CFDictionary, &buffer)
+    }
+    guard status == kCVReturnSuccess, let pixelBuffer = buffer else {
+        fatalError("CVPixelBufferCreate failed: \(status)")
+    }
+    CVPixelBufferLockBaseAddress(pixelBuffer, [])
+    let context = CGContext(
+        data: CVPixelBufferGetBaseAddress(pixelBuffer),
+        width: width,
+        height: height,
+        bitsPerComponent: 8,
+        bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer),
+        space: CGColorSpaceCreateDeviceRGB(),
+        bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue
+    )!
+    NSGraphicsContext.saveGraphicsState()
+    NSGraphicsContext.current = NSGraphicsContext(cgContext: context, flipped: false)
+    image.draw(in: NSRect(x: 0, y: 0, width: width, height: height))
+    NSGraphicsContext.restoreGraphicsState()
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
+    return pixelBuffer
+}
+
+func makeVideoOnly() throws {
+    try? FileManager.default.removeItem(at: videoOnlyURL)
+    let writer = try AVAssetWriter(outputURL: videoOnlyURL, fileType: .mp4)
+    let settings: [String: Any] = [
+        AVVideoCodecKey: AVVideoCodecType.h264,
+        AVVideoWidthKey: width,
+        AVVideoHeightKey: height,
+    ]
+    let input = AVAssetWriterInput(mediaType: .video, outputSettings: settings)
+    input.expectsMediaDataInRealTime = false
+    let adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: [
+        kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA,
+        kCVPixelBufferWidthKey as String: width,
+        kCVPixelBufferHeightKey as String: height,
+        kCVPixelBufferCGImageCompatibilityKey as String: true,
+        kCVPixelBufferCGBitmapContextCompatibilityKey as String: true,
+    ])
+    writer.add(input)
+    guard writer.startWriting() else {
+        throw writer.error ?? NSError(domain: "wakunami", code: 10, userInfo: [NSLocalizedDescriptionKey: "Writer could not start"])
+    }
+    writer.startSession(atSourceTime: .zero)
+
+    var t = CMTime.zero
+    for scene in scenes {
+        while !input.isReadyForMoreMediaData { Thread.sleep(forTimeInterval: 0.05) }
+        if !adaptor.append(pixelBuffer(from: renderScene(scene), pool: adaptor.pixelBufferPool), withPresentationTime: t) {
+            fputs("Append failed at \(scene.title): \(String(describing: writer.error))\n", stderr)
+            exit(1)
+        }
+        t = t + CMTime(seconds: scene.seconds, preferredTimescale: 600)
+    }
+    if !adaptor.append(pixelBuffer(from: renderScene(scenes.last!), pool: adaptor.pixelBufferPool), withPresentationTime: t) {
+        fputs("Append failed at final frame: \(String(describing: writer.error))\n", stderr)
+        exit(1)
+    }
+    input.markAsFinished()
+    writer.finishWriting {
+        if writer.status != .completed {
+            fputs("Video writer failed: \(String(describing: writer.error))\n", stderr)
+            exit(1)
+        }
+        exit(0)
+    }
+    RunLoop.current.run()
+}
+
+func muxAudio() async throws {
+    try? FileManager.default.removeItem(at: finalURL)
+    let composition = AVMutableComposition()
+    let videoAsset = AVURLAsset(url: videoOnlyURL)
+    let audioAsset = AVURLAsset(url: narrationURL)
+
+    guard let videoTrack = try await videoAsset.loadTracks(withMediaType: .video).first,
+          let audioTrack = try await audioAsset.loadTracks(withMediaType: .audio).first else {
+        throw NSError(domain: "wakunami", code: 1, userInfo: [NSLocalizedDescriptionKey: "Missing video or audio track"])
+    }
+
+    let videoDuration = try await videoAsset.load(.duration)
+    let audioDuration = try await audioAsset.load(.duration)
+    let duration = min(videoDuration, audioDuration)
+
+    let compVideo = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)!
+    try compVideo.insertTimeRange(CMTimeRange(start: .zero, duration: videoDuration), of: videoTrack, at: .zero)
+    let compAudio = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)!
+    try compAudio.insertTimeRange(CMTimeRange(start: .zero, duration: duration), of: audioTrack, at: .zero)
+
+    guard let export = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality) else {
+        throw NSError(domain: "wakunami", code: 2, userInfo: [NSLocalizedDescriptionKey: "Cannot create exporter"])
+    }
+    export.outputURL = finalURL
+    export.outputFileType = .mp4
+    await export.export()
+    if export.status != .completed {
+        throw export.error ?? NSError(domain: "wakunami", code: 3, userInfo: [NSLocalizedDescriptionKey: "Export failed"])
+    }
+}
+
+let mode = CommandLine.arguments.dropFirst().first ?? "video"
+if mode == "video" {
+    try makeVideoOnly()
+} else if mode == "mux" {
+    try await muxAudio()
+} else {
+    fputs("Usage: swift make_wakunami_long_video.swift [video|mux]\n", stderr)
+    exit(2)
+}
