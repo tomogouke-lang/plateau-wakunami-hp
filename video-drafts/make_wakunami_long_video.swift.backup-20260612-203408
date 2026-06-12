@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v3-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v3.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v2-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v2.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
@@ -114,11 +114,15 @@ func renderScene(_ scene: Scene) -> NSImage {
     NSRect(origin: .zero, size: frameSize).fill()
 
     if let image = loadImage(scene) {
+        let fillRect = aspectFill(image.size, into: frameSize)
+        image.draw(in: fillRect, from: .zero, operation: .sourceOver, fraction: 0.30)
+        NSColor(calibratedWhite: 1, alpha: 0.45).setFill()
+        NSRect(origin: .zero, size: frameSize).fill()
+
         let photoRect = aspectFit(image.size, into: NSSize(width: 1500, height: 800))
             .offsetBy(dx: (frameSize.width - 1500) / 2, dy: 170)
-        NSColor(calibratedRed: 0.88, green: 0.89, blue: 0.85, alpha: 1).setFill()
-        NSBezierPath(roundedRect: photoRect.insetBy(dx: -18, dy: -18), xRadius: 4, yRadius: 4).fill()
         image.draw(in: photoRect, from: .zero, operation: .sourceOver, fraction: 1)
+
     }
 
     NSColor(calibratedRed: 0.08, green: 0.20, blue: 0.18, alpha: 0.88).setFill()
