@@ -123,6 +123,17 @@ func renderScene(_ scene: Scene) -> NSImage {
             .offsetBy(dx: (frameSize.width - 1500) / 2, dy: 170)
         image.draw(in: photoRect, from: .zero, operation: .sourceOver, fraction: 1)
 
+        let faces = detectFaces(in: image)
+        for face in faces {
+            let x = photoRect.origin.x + face.origin.x * photoRect.width
+            let y = photoRect.origin.y + face.origin.y * photoRect.height
+            let w = face.width * photoRect.width
+            let h = face.height * photoRect.height
+            let pad = max(w, h) * 0.35
+            let faceRect = NSRect(x: x - pad / 2, y: y - pad / 2, width: w + pad, height: h + pad)
+            NSColor(calibratedWhite: 0.88, alpha: 0.96).setFill()
+            NSBezierPath(ovalIn: faceRect).fill()
+        }
     }
 
     NSColor(calibratedRed: 0.08, green: 0.20, blue: 0.18, alpha: 0.88).setFill()
