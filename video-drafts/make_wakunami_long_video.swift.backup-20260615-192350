@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v4-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v4.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v3-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v3.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
@@ -29,20 +29,20 @@ let scenes: [Scene] = [
     Scene(imageName: "01-building-clean.jpg", title: "建物・入口", subtitle: "実際の建物の様子です。まずは、見学だけでも大丈夫です。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "pickup-assistance-ai.png", title: "送迎", subtitle: "朝はご自宅までお迎えに伺います。乗り降りも職員がそばでお手伝いします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "health-check-hands-ai.png", title: "到着・健康確認", subtitle: "到着後は体調を確認し、その日の様子に合わせて無理のない過ごし方を考えます。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "group-exercise-no-face-ai.png", title: "集団運動", subtitle: "体操や運動は、できることを続けるための時間です。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "walking-training-no-face-ai.png", title: "個別運動", subtitle: "一人ひとりの状態に合わせて、個別の運動にも取り組みます。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "walking-training-no-face-ai.png", title: "歩行練習", subtitle: "職員がそばにつき、安全に配慮しながら行います。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "walking-training-no-face-ai.png", title: "できることを続ける", subtitle: "無理をせず、その方のペースを大切にします。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "footbath-no-face-ai.png", title: "リラクゼーション", subtitle: "足湯など、体を休める時間もあります。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "relax-equipment-no-face-ai.png", title: "ゆったり過ごす時間", subtitle: "運動だけでなく、落ち着いて過ごせる時間も大切にしています。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "relax-equipment-no-face-ai.png", title: "ウォーターベッド・メドマー", subtitle: "体調や希望に合わせて、リラクゼーション機器も利用できます。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "04-group-exercise-clean.jpg", title: "集団運動", subtitle: "体操や運動は、できることを続けるための時間です。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "05-individual-exercise-clean.jpg", title: "個別運動", subtitle: "一人ひとりの状態に合わせて、個別の運動にも取り組みます。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "06-walking-training-clean.jpg", title: "歩行練習", subtitle: "職員がそばにつき、安全に配慮しながら行います。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "07-walking-training-2-clean.jpg", title: "できることを続ける", subtitle: "無理をせず、その方のペースを大切にします。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "08-footbath-clean.jpg", title: "リラクゼーション", subtitle: "足湯など、体を休める時間もあります。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "09-relax-room-clean.jpg", title: "ゆったり過ごす時間", subtitle: "運動だけでなく、落ち着いて過ごせる時間も大切にしています。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "10-waterbed-clean.jpg", title: "ウォーターベッド・メドマー", subtitle: "体調や希望に合わせて、リラクゼーション機器も利用できます。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "11-bath-clean.jpg", title: "入浴", subtitle: "入浴は安全に配慮し、必要なところを職員がお手伝いします。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "lunch-table-no-face-ai.png", title: "昼食", subtitle: "昼食は、落ち着いて食べられる時間にしています。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "12-lunch-clean.jpg", title: "昼食", subtitle: "昼食は、落ち着いて食べられる時間にしています。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "lunch-support-hands-ai.png", title: "食事の見守り", subtitle: "食べやすさや体調の変化にも気を配ります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "recreation-hands-ai.png", title: "午後の活動", subtitle: "午後は趣味活動やレクリエーションなど、その方に合わせた過ごし方を大切にしています。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "recreation-hands-ai.png", title: "脳トレ・趣味活動", subtitle: "手先を使う活動や考える活動も、無理のない範囲で行います。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "recreation-hands-ai.png", title: "それぞれのペースで", subtitle: "参加する日も、静かに過ごす日もあります。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "seasonal-recreation-no-face-ai.png", title: "季節の行事", subtitle: "いつもと少し違う、大きめのレクリエーションを行うこともあります。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "15-hobby-clean.jpg", title: "脳トレ・趣味活動", subtitle: "手先を使う活動や考える活動も、無理のない範囲で行います。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "16-brain-training-clean.jpg", title: "それぞれのペースで", subtitle: "参加する日も、静かに過ごす日もあります。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "17-event-clean.jpg", title: "季節の行事", subtitle: "いつもと少し違う、大きめのレクリエーションを行うこともあります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "pickup-assistance-ai.png", title: "帰宅", subtitle: "夕方はご自宅までお送りします。必要に応じて、その日の様子もお伝えします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "01-building-clean.jpg", title: "見学だけでも大丈夫です", subtitle: "涌波のホームページから、施設の様子をご確認ください。\ntomogouke-lang.github.io/plateau-wakunami-hp/", seconds: 9, rotateDegrees: 0),
 ]
