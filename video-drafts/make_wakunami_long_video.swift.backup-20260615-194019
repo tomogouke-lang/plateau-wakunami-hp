@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v6-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v6.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v5-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v5.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
@@ -35,7 +35,7 @@ let scenes: [Scene] = [
     Scene(imageName: "walking-training-no-face-ai.png", title: "できることを続ける", subtitle: "無理をせず、その方のペースを大切にします。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "footbath-no-face-ai.png", title: "リラクゼーション", subtitle: "足湯など、体を休める時間もあります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "relax-equipment-no-face-ai.png", title: "ゆったり過ごす時間", subtitle: "運動だけでなく、落ち着いて過ごせる時間も大切にしています。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "medomer-reference-no-face-ai.png", title: "メドマー", subtitle: "脚をやさしく包み、リラクゼーションの時間を過ごせます。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "relax-equipment-no-face-ai.png", title: "ウォーターベッド・メドマー", subtitle: "体調や希望に合わせて、リラクゼーション機器も利用できます。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "11-bath-clean.jpg", title: "入浴", subtitle: "入浴は安全に配慮し、必要なところを職員がお手伝いします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "lunch-table-no-face-ai.png", title: "昼食", subtitle: "昼食は、落ち着いて食べられる時間にしています。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "lunch-support-hands-ai.png", title: "食事の見守り", subtitle: "食べやすさや体調の変化にも気を配ります。", seconds: 8, rotateDegrees: 0),
