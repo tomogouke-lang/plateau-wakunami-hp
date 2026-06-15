@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v5-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v5.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v4-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v4.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
@@ -27,7 +27,7 @@ let frameSize = NSSize(width: width, height: height)
 let scenes: [Scene] = [
     Scene(imageName: "01-building-clean.jpg", title: "涌波での一日の流れ", subtitle: "初めての方にも分かりやすく、送迎から帰宅までをご紹介します。", seconds: 7, rotateDegrees: 0),
     Scene(imageName: "01-building-clean.jpg", title: "建物・入口", subtitle: "実際の建物の様子です。まずは、見学だけでも大丈夫です。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "pickup-assistance-ai-cropped.png", title: "送迎", subtitle: "朝はご自宅までお迎えに伺います。乗り降りも職員がそばでお手伝いします。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "pickup-assistance-ai.png", title: "送迎", subtitle: "朝はご自宅までお迎えに伺います。乗り降りも職員がそばでお手伝いします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "health-check-hands-ai.png", title: "到着・健康確認", subtitle: "到着後は体調を確認し、その日の様子に合わせて無理のない過ごし方を考えます。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "group-exercise-no-face-ai.png", title: "集団運動", subtitle: "体操や運動は、できることを続けるための時間です。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "walking-training-no-face-ai.png", title: "個別運動", subtitle: "一人ひとりの状態に合わせて、個別の運動にも取り組みます。", seconds: 8, rotateDegrees: 0),
@@ -43,7 +43,7 @@ let scenes: [Scene] = [
     Scene(imageName: "recreation-hands-ai.png", title: "脳トレ・趣味活動", subtitle: "手先を使う活動や考える活動も、無理のない範囲で行います。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "recreation-hands-ai.png", title: "それぞれのペースで", subtitle: "参加する日も、静かに過ごす日もあります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "seasonal-recreation-no-face-ai.png", title: "季節の行事", subtitle: "いつもと少し違う、大きめのレクリエーションを行うこともあります。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "pickup-assistance-ai-cropped.png", title: "帰宅", subtitle: "夕方はご自宅までお送りします。必要に応じて、その日の様子もお伝えします。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "pickup-assistance-ai.png", title: "帰宅", subtitle: "夕方はご自宅までお送りします。必要に応じて、その日の様子もお伝えします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "01-building-clean.jpg", title: "見学だけでも大丈夫です", subtitle: "涌波のホームページから、施設の様子をご確認ください。\ntomogouke-lang.github.io/plateau-wakunami-hp/", seconds: 9, rotateDegrees: 0),
 ]
 
