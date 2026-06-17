@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v14-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v14.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v15-template-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v15-template.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
@@ -25,24 +25,23 @@ let height = 1080
 let frameSize = NSSize(width: width, height: height)
 
 let scenes: [Scene] = [
-    Scene(imageName: "wakunami-exterior-real.png", title: "涌波での一日の流れ", subtitle: "初めての方にも分かりやすく、送迎から帰宅までをご紹介します。", seconds: 7, rotateDegrees: 0),
-    Scene(imageName: "wakunami-exterior-real.png", title: "建物・入口", subtitle: "実際の建物の様子です。まずは、見学だけでも大丈夫です。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "wakunami-pickup-real.png", title: "送迎", subtitle: "朝はご自宅までお迎えに伺います。乗り降りも職員がそばでお手伝いします。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "health-check-hands-ai.png", title: "到着・健康確認", subtitle: "到着後は体調を確認し、その日の様子に合わせて無理のない過ごし方を考えます。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "group-exercise-no-face-ai.png", title: "集団運動", subtitle: "体操や運動は、できることを続けるための時間です。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "walking-training-no-face-ai.png", title: "個別運動", subtitle: "一人ひとりの状態に合わせて、個別の運動にも取り組みます。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "walking-training-no-face-ai.png", title: "歩行練習", subtitle: "職員がそばにつき、安全に配慮しながら行います。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "walking-training-no-face-ai.png", title: "できることを続ける", subtitle: "無理をせず、その方のペースを大切にします。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "wakunami-exterior-real.png", title: "涌波の外観", subtitle: "まずは、どのような場所に通うのかを見ていただきます。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "09-relax-room-clean.jpg", title: "建物の中の様子", subtitle: "落ち着いて過ごせるフロアで、一日を始めます。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "wakunami-pickup-real.png", title: "到着", subtitle: "送迎で到着されたら、職員がそばでお手伝いします。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "health-check-hands-ai.png", title: "健康確認", subtitle: "血圧や体調を確認し、その日の状態に合わせて過ごします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "wakunami-footbath-real.png", title: "電気による足湯", subtitle: "体を温め、代謝や免疫力の維持をサポートします。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "waterbed-supine-no-face-ai.png", title: "ウォーターベッド", subtitle: "横になって、落ち着いて体を休める時間もあります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "medomer-reference-no-face-ai.png", title: "メドマー", subtitle: "脚をやさしく包み、リラクゼーションの時間を過ごせます。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "wakunami-bath-real.png", title: "入浴", subtitle: "入浴は安全に配慮し、必要なところを職員がお手伝いします。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "lunch-table-no-face-ai.png", title: "昼食", subtitle: "昼食は、落ち着いて食べられる時間にしています。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "wakunami-brain-training-real.png", title: "午後の活動", subtitle: "午後は趣味活動やレクリエーションなど、その方に合わせた過ごし方を大切にしています。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "wakunami-brain-training-real.png", title: "脳トレ・趣味活動", subtitle: "手先を使う活動や考える活動も、無理のない範囲で行います。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "wakunami-mahjong-real.png", title: "麻雀", subtitle: "人との関わりを楽しめる活動もあります。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "wakunami-sendoff-real.png", title: "帰宅", subtitle: "夕方はご自宅までお送りします。必要に応じて、その日の様子もお伝えします。", seconds: 9, rotateDegrees: 0),
-    Scene(imageName: "wakunami-exterior-real.png", title: "見学だけでも大丈夫です", subtitle: "涌波のホームページから、施設の様子をご確認ください。\ntomogouke-lang.github.io/plateau-wakunami-hp/", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "walking-training-no-face-ai.png", title: "個別運動", subtitle: "一人ひとりの状態に合わせて、動きやすい体づくりを行います。", seconds: 10, rotateDegrees: 0),
+    Scene(imageName: "walking-training-no-face-ai.png", title: "歩行練習", subtitle: "安全に配慮しながら、動作や歩行の確認も行います。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "group-exercise-no-face-ai.png", title: "集団運動", subtitle: "みんなで体を動かし、筋力や体力の維持を目指します。", seconds: 10, rotateDegrees: 0),
+    Scene(imageName: "wakunami-bath-real.png", title: "入浴", subtitle: "希望や状態に応じて、入浴も利用できます。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "lunch-table-no-face-ai.png", title: "昼食", subtitle: "昼食は、落ち着いて食べられる時間にしています。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "wakunami-mahjong-real.png", title: "趣味活動", subtitle: "麻雀など、好きなことを楽しむ時間もあります。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "wakunami-brain-training-real.png", title: "脳トレ", subtitle: "みんなで考えたり声を出したりして、気分をリフレッシュします。", seconds: 10, rotateDegrees: 0),
+    Scene(imageName: nil, title: "大きなレクリエーション", subtitle: "時々、普段と違う活動を行い、楽しみながら機能訓練の成果を確認します。", seconds: 10, rotateDegrees: 0),
+    Scene(imageName: "wakunami-sendoff-real.png", title: "帰りの送り出し", subtitle: "一日の終わりは、職員が笑顔でお送りします。", seconds: 9, rotateDegrees: 0),
+    Scene(imageName: "wakunami-exterior-real.png", title: "見学だけでも大丈夫です", subtitle: "涌波のホームページから、施設の様子をご確認ください。\ntomogouke-lang.github.io/plateau-wakunami-hp/", seconds: 10, rotateDegrees: 0),
 ]
 
 func loadImage(_ scene: Scene) -> NSImage? {
@@ -117,6 +116,11 @@ func renderScene(_ scene: Scene) -> NSImage {
         NSColor(calibratedRed: 0.88, green: 0.89, blue: 0.85, alpha: 1).setFill()
         NSBezierPath(roundedRect: photoRect.insetBy(dx: -18, dy: -18), xRadius: 4, yRadius: 4).fill()
         image.draw(in: photoRect, from: .zero, operation: .sourceOver, fraction: 1)
+    } else {
+        NSColor(calibratedRed: 0.76, green: 0.82, blue: 0.76, alpha: 1).setFill()
+        NSBezierPath(roundedRect: NSRect(x: 210, y: 270, width: 1500, height: 560), xRadius: 4, yRadius: 4).fill()
+        drawWrappedText(scene.title, rect: NSRect(x: 300, y: 545, width: 1320, height: 80), font: NSFont.boldSystemFont(ofSize: 58), color: NSColor(calibratedRed: 0.06, green: 0.18, blue: 0.16, alpha: 1), alignment: .center)
+        drawWrappedText(scene.subtitle, rect: NSRect(x: 370, y: 430, width: 1180, height: 110), font: NSFont.systemFont(ofSize: 34), color: NSColor(calibratedRed: 0.06, green: 0.18, blue: 0.16, alpha: 0.9), alignment: .center)
     }
 
     NSColor(calibratedRed: 0.08, green: 0.20, blue: 0.18, alpha: 0.88).setFill()
@@ -196,6 +200,7 @@ func makeVideoOnly() throws {
         fputs("Append failed at final frame: \(String(describing: writer.error))\n", stderr)
         exit(1)
     }
+    writer.endSession(atSourceTime: t)
     input.markAsFinished()
     writer.finishWriting {
         if writer.status != .completed {
