@@ -89,3 +89,21 @@
 ### 成果物
 - `video-drafts/ai-assets/waterbed-supine-no-face-ai.png`
 - `video-drafts/wakunami-long-draft-v8-video-only.mp4`
+
+## 2026-06-17 追記
+
+### やったこと
+- 追加提供された実写写真を第9版動画に組み込み。
+- 追加した場面: 送迎、浴槽、外観、脳トレ、麻雀。
+- 外観は冒頭・建物紹介・最後、送迎は送迎・帰宅、浴槽は入浴、脳トレと麻雀は午後活動に配置。
+
+### 成果物
+- `video-drafts/edited-photos/wakunami-exterior-real.png`
+- `video-drafts/edited-photos/wakunami-pickup-real.png`
+- `video-drafts/edited-photos/wakunami-bath-real.png`
+- `video-drafts/edited-photos/wakunami-brain-training-real.png`
+- `video-drafts/edited-photos/wakunami-mahjong-real.png`
+- `video-drafts/wakunami-long-draft-v9-video-only.mp4`
+
+### 注意
+- 実写写真には、マスクありでも本人が分かる可能性がある。公開前に同意・掲載可否の確認が必要。
