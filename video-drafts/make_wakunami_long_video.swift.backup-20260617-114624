@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v11-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v11.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v10-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v10.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
@@ -33,11 +33,12 @@ let scenes: [Scene] = [
     Scene(imageName: "walking-training-no-face-ai.png", title: "個別運動", subtitle: "一人ひとりの状態に合わせて、個別の運動にも取り組みます。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "walking-training-no-face-ai.png", title: "歩行練習", subtitle: "職員がそばにつき、安全に配慮しながら行います。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "walking-training-no-face-ai.png", title: "できることを続ける", subtitle: "無理をせず、その方のペースを大切にします。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "wakunami-footbath-real.png", title: "電気による足湯", subtitle: "体を温め、代謝や免疫力の維持をサポートします。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "wakunami-footbath-real.jpg", title: "電気による足湯", subtitle: "体を温め、代謝や免疫力の維持をサポートします。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "waterbed-supine-no-face-ai.png", title: "ウォーターベッド", subtitle: "横になって、落ち着いて体を休める時間もあります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "medomer-reference-no-face-ai.png", title: "メドマー", subtitle: "脚をやさしく包み、リラクゼーションの時間を過ごせます。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "wakunami-bath-real.png", title: "入浴", subtitle: "入浴は安全に配慮し、必要なところを職員がお手伝いします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "lunch-table-no-face-ai.png", title: "昼食", subtitle: "昼食は、落ち着いて食べられる時間にしています。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "lunch-support-hands-ai.png", title: "食事の見守り", subtitle: "食べやすさや体調の変化にも気を配ります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "wakunami-brain-training-real.png", title: "午後の活動", subtitle: "午後は趣味活動やレクリエーションなど、その方に合わせた過ごし方を大切にしています。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "wakunami-brain-training-real.png", title: "脳トレ・趣味活動", subtitle: "手先を使う活動や考える活動も、無理のない範囲で行います。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "wakunami-mahjong-real.png", title: "麻雀", subtitle: "人との関わりを楽しめる活動もあります。", seconds: 8, rotateDegrees: 0),
