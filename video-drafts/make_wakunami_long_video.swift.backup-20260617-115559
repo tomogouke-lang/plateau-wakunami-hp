@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v12-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v12.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v11-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v11.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
@@ -42,6 +42,7 @@ let scenes: [Scene] = [
     Scene(imageName: "wakunami-brain-training-real.png", title: "脳トレ・趣味活動", subtitle: "手先を使う活動や考える活動も、無理のない範囲で行います。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "wakunami-mahjong-real.png", title: "麻雀", subtitle: "人との関わりを楽しめる活動もあります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "recreation-hands-ai.png", title: "それぞれのペースで", subtitle: "参加する日も、静かに過ごす日もあります。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "seasonal-recreation-no-face-ai.png", title: "季節の行事", subtitle: "いつもと少し違う、大きめのレクリエーションを行うこともあります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "wakunami-pickup-real.png", title: "帰宅", subtitle: "夕方はご自宅までお送りします。必要に応じて、その日の様子もお伝えします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "wakunami-exterior-real.png", title: "見学だけでも大丈夫です", subtitle: "涌波のホームページから、施設の様子をご確認ください。\ntomogouke-lang.github.io/plateau-wakunami-hp/", seconds: 9, rotateDegrees: 0),
 ]
