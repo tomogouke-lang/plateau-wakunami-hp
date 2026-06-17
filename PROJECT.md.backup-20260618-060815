@@ -276,18 +276,3 @@
 ### 成果物
 - `video-drafts/wakunami-v20-scene-slides/`
 - `/Users/gouke/Desktop/涌波_動画スライド_v20_20260617-192643/`
-
-## 2026-06-18 追記
-
-### やったこと
-- ユーザー提供の `施設の過ごし方動画（涌波）.mp4` に、著作権素材を使わないオリジナルの穏やかなBGMを追加。
-- 元動画の音声は残し、BGMは低音量でフェードイン・フェードアウトするように設定。
-- BGM入りMP4を書き出し、長さ128秒、映像1トラック・音声1トラックを確認。
-
-### 成果物
-- `/Users/gouke/Desktop/涌波_動画スライド_v20_20260617-192643/施設の過ごし方動画（涌波）_BGM入り.mp4`
-- `video-drafts/add_gentle_bgm.swift`
-- `video-drafts/gentle-background-melody.caf`
-
-### 注意
-- BGMは仮のオリジナルメロディー。大きすぎる、または小さすぎる場合は音量を調整する。
