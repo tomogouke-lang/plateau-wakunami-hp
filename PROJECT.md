@@ -247,3 +247,21 @@
 ### 成果物
 - `video-drafts/wakunami-long-draft-v20-template-video-only.mp4`
 - `video-drafts/wakunami-long-draft-v20-template-storyboard.md`
+
+## 2026-06-17 追記13
+
+### やったこと
+- 第20版に合わせたナレーション台本を作成。
+- macOS読み上げ音声 `Kyoko` で仮ナレーションを作成。
+- 読み上げ用の間を調整し、ナレーション音声を142秒に調整。
+- 第20版動画にナレーション音声を結合し、音声付きMOVを作成。
+
+### 成果物
+- `video-drafts/wakunami-long-narration.txt`
+- `video-drafts/wakunami-long-narration-say.txt`
+- `video-drafts/wakunami-long-narration.aiff`
+- `video-drafts/wakunami-long-draft-v20-template-narration.mov`
+
+### 注意
+- これは仮ナレーション。自然な声にする場合は、同じ台本をGoogle Vids等で読み上げ直す。
+- BGMは未追加。
