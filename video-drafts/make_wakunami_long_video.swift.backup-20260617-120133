@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v13-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v13.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v12-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v12.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
