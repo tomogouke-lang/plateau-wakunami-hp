@@ -19,7 +19,6 @@ let aiDir = outDir.appendingPathComponent("ai-assets")
 let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v20-template-video-only.mp4")
 let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v20-template-narration.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.aiff")
-let slidesURL = outDir.appendingPathComponent("wakunami-v20-scene-slides")
 
 let width = 1920
 let height = 1080
@@ -214,35 +213,6 @@ func makeVideoOnly() throws {
     RunLoop.current.run()
 }
 
-func safeFilePart(_ text: String) -> String {
-    let forbidden = CharacterSet(charactersIn: "/\\:?%*|\"<>")
-    let cleaned = text.components(separatedBy: forbidden).joined(separator: "")
-    return cleaned.replacingOccurrences(of: " ", with: "_")
-}
-
-func exportSlides() throws {
-    try FileManager.default.createDirectory(at: slidesURL, withIntermediateDirectories: true)
-    var rows: [String] = ["# 涌波 施設紹介動画 第20版 スライド一覧", ""]
-    var start = 0
-    for (index, scene) in scenes.enumerated() {
-        let number = String(format: "%02d", index + 1)
-        let fileName = "\(number)_\(safeFilePart(scene.title)).png"
-        let fileURL = slidesURL.appendingPathComponent(fileName)
-        let image = renderScene(scene)
-        guard let tiff = image.tiffRepresentation,
-              let bitmap = NSBitmapImageRep(data: tiff),
-              let data = bitmap.representation(using: .png, properties: [:]) else {
-            throw NSError(domain: "wakunami", code: 20, userInfo: [NSLocalizedDescriptionKey: "Cannot render slide \(number)"])
-        }
-        try data.write(to: fileURL)
-        rows.append("| \(number) | \(start)秒 | \(Int(scene.seconds))秒 | \(scene.title) | \(fileName) |")
-        start += Int(scene.seconds)
-    }
-    let header = ["| No | 開始 | 秒数 | タイトル | ファイル |", "|---:|---:|---:|---|---|"]
-    rows.insert(contentsOf: header, at: 2)
-    try rows.joined(separator: "\n").write(to: slidesURL.appendingPathComponent("slides-index.md"), atomically: true, encoding: .utf8)
-}
-
 func muxAudio() async throws {
     try? FileManager.default.removeItem(at: finalURL)
     let composition = AVMutableComposition()
@@ -279,9 +249,7 @@ if mode == "video" {
     try makeVideoOnly()
 } else if mode == "mux" {
     try await muxAudio()
-} else if mode == "slides" {
-    try exportSlides()
 } else {
-    fputs("Usage: swift make_wakunami_long_video.swift [video|mux|slides]\n", stderr)
+    fputs("Usage: swift make_wakunami_long_video.swift [video|mux]\n", stderr)
     exit(2)
 }
