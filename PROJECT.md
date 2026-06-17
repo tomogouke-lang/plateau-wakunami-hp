@@ -234,3 +234,16 @@
 - `video-drafts/edited-photos/wakunami-hobby-real.png`
 - `video-drafts/wakunami-long-draft-v19-template-video-only.mp4`
 - `video-drafts/wakunami-long-draft-v19-template-storyboard.md`
+
+## 2026-06-17 追記12
+
+### やったこと
+- 独立したエアロバイク場面を削除。
+- 個別運動場面の画像をエアロバイク写真に変更。
+- 個別運動の文言は維持し、エアロバイク用の文言は表示しないようにした。
+- 歩行練習場面はそのまま維持。
+- 第20版の音声なし動画を150秒で作成。
+
+### 成果物
+- `video-drafts/wakunami-long-draft-v20-template-video-only.mp4`
+- `video-drafts/wakunami-long-draft-v20-template-storyboard.md`
