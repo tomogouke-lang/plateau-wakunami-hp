@@ -16,8 +16,8 @@ let imageDir = URL(fileURLWithPath: "/tmp/codex-wakunami-docx-media")
 let outDir = URL(fileURLWithPath: "/Users/gouke/Projects/plateau-wakunami-hp/video-drafts")
 let editedDir = outDir.appendingPathComponent("edited-photos")
 let aiDir = outDir.appendingPathComponent("ai-assets")
-let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v16-template-video-only.mp4")
-let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v16-template.mov")
+let videoOnlyURL = outDir.appendingPathComponent("wakunami-long-draft-v15-template-video-only.mp4")
+let finalURL = outDir.appendingPathComponent("wakunami-long-draft-v15-template.mov")
 let narrationURL = outDir.appendingPathComponent("wakunami-long-narration.m4a")
 
 let width = 1920
@@ -26,7 +26,7 @@ let frameSize = NSSize(width: width, height: height)
 
 let scenes: [Scene] = [
     Scene(imageName: "wakunami-exterior-real.png", title: "涌波の外観", subtitle: "まずは、どのような場所に通うのかを見ていただきます。", seconds: 8, rotateDegrees: 0),
-    Scene(imageName: "wakunami-interior-real.png", title: "建物の中の様子", subtitle: "落ち着いて過ごせるフロアで、一日を始めます。", seconds: 8, rotateDegrees: 0),
+    Scene(imageName: "09-relax-room-clean.jpg", title: "建物の中の様子", subtitle: "落ち着いて過ごせるフロアで、一日を始めます。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "wakunami-pickup-real.png", title: "到着", subtitle: "送迎で到着されたら、職員がそばでお手伝いします。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "health-check-hands-ai.png", title: "健康確認", subtitle: "血圧や体調を確認し、その日の状態に合わせて過ごします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "wakunami-footbath-real.png", title: "電気による足湯", subtitle: "体を温め、代謝や免疫力の維持をサポートします。", seconds: 8, rotateDegrees: 0),
@@ -39,7 +39,7 @@ let scenes: [Scene] = [
     Scene(imageName: "lunch-table-no-face-ai.png", title: "昼食", subtitle: "昼食は、落ち着いて食べられる時間にしています。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "wakunami-mahjong-real.png", title: "趣味活動", subtitle: "麻雀など、好きなことを楽しむ時間もあります。", seconds: 8, rotateDegrees: 0),
     Scene(imageName: "wakunami-brain-training-real.png", title: "脳トレ", subtitle: "みんなで考えたり声を出したりして、気分をリフレッシュします。", seconds: 10, rotateDegrees: 0),
-    Scene(imageName: "wakunami-outing-real.png", title: "たまにはみんなでお出かけ", subtitle: "普段と違う場所へ出かけ、楽しみながら気分をリフレッシュします。", seconds: 10, rotateDegrees: 0),
+    Scene(imageName: nil, title: "大きなレクリエーション", subtitle: "時々、普段と違う活動を行い、楽しみながら機能訓練の成果を確認します。", seconds: 10, rotateDegrees: 0),
     Scene(imageName: "wakunami-sendoff-real.png", title: "帰りの送り出し", subtitle: "一日の終わりは、職員が笑顔でお送りします。", seconds: 9, rotateDegrees: 0),
     Scene(imageName: "wakunami-exterior-real.png", title: "見学だけでも大丈夫です", subtitle: "涌波のホームページから、施設の様子をご確認ください。\ntomogouke-lang.github.io/plateau-wakunami-hp/", seconds: 10, rotateDegrees: 0),
 ]
