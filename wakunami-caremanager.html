@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ケアマネ説明用｜プラトーケアセンター涌波本店</title>
+<title>ご利用案内｜プラトーケアセンター涌波本店</title>
 <style>
   :root{
     --brand:#2E7DA4;
@@ -50,11 +50,12 @@
   .eyebrow{display:block;color:var(--brand);letter-spacing:.12em;font-size:13px;font-weight:900;margin-bottom:4px;}
   .h2{font-size:30px;color:var(--brand-dark);}
   .video-panel{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:stretch;}
-  .video-box{position:relative;min-height:430px;border-radius:18px;overflow:hidden;background:#111;}
+  .video-box{position:relative;aspect-ratio:16/9;align-self:start;border-radius:18px;overflow:hidden;background:#111;}
   .video-box::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.62),rgba(0,0,0,.05) 55%);}
+  .video-el{position:relative;z-index:3;display:block;width:100%;height:100%;object-fit:cover;background:#111;}
   .play{position:absolute;left:32px;bottom:32px;z-index:2;display:flex;align-items:center;gap:14px;color:#fff;font-weight:900;font-size:21px;}
   .play .circle{width:62px;height:62px;border-radius:50%;background:#fff;color:var(--brand-dark);display:grid;place-items:center;font-size:28px;box-shadow:0 8px 22px rgba(0,0,0,.28);}
-  .story{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;}
+  .story{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;align-self:start;}
   .story ol{margin:14px 0 0;padding-left:1.3em;}
   .story li{margin:10px 0;font-weight:700;}
   .image-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -91,6 +92,18 @@
   .phone a{color:#fff;text-decoration:none;border-bottom:2px dotted rgba(255,255,255,.65);}
   .links-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.24);border-radius:16px;padding:22px;}
   .links-box a{display:block;color:#fff;font-weight:900;text-decoration:none;margin:10px 0;}
+  .akitbl-wrap{max-width:520px;margin:0 auto;}
+  .akitbl{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.05);}
+  .akitbl th,.akitbl td{padding:14px 8px;text-align:center;border-bottom:1px solid var(--line);}
+  .akitbl thead th{background:var(--brand);color:#fff;font-size:16px;font-weight:800;}
+  .akitbl tbody th{background:var(--soft);width:64px;color:var(--brand-dark);font-weight:800;font-size:18px;}
+  .akitbl tr:last-child th,.akitbl tr:last-child td{border-bottom:0;}
+  .lvl{display:inline-block;min-width:62px;padding:6px 16px;border-radius:20px;font-weight:800;font-size:16px;}
+  .lvl.ok{background:#e3f3e8;color:#2E8B57;}
+  .lvl.few{background:#fdf0d8;color:#b9842b;}
+  .lvl.no{background:#f3eeea;color:#8a8a8a;}
+  .aki-note{max-width:520px;margin:14px auto 0;font-size:14px;color:var(--sub);text-align:center;}
+  .aki-note span{display:inline-block;}
   footer{padding:26px 0;color:var(--sub);font-size:13px;text-align:center;background:#fff;}
   @media(max-width:980px){
     .navlinks{display:none;}
@@ -111,12 +124,15 @@
     .use-case{font-size:14px;line-height:1.5;border-radius:12px;align-items:flex-start;}
     .actions .btn{width:100%;margin:0;}
     .h2{font-size:25px;}
-    .video-box{min-height:300px;}
     .fit-grid{grid-template-columns:1fr;}
     .time-row{grid-template-columns:96px 1fr;}
     .time-row b{font-size:17px;padding:14px 12px;}
     .time-row span{padding:14px 14px;}
     .total{font-size:34px;}
+    .akitbl th,.akitbl td{padding:11px 4px;}
+    .akitbl thead th{font-size:13px;}
+    .akitbl tbody th{width:44px;font-size:16px;}
+    .lvl{min-width:auto;padding:5px 12px;font-size:14px;}
     .mobile-actions{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:rgba(255,255,255,.96);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.12);}
     .mobile-actions a{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:12px;background:var(--brand-dark);color:#fff;text-decoration:none;font-size:14px;font-weight:900;}
     .mobile-actions a:last-child{background:var(--accent);}
@@ -126,7 +142,7 @@
 <body>
 <nav class="nav">
   <div class="inner">
-    <div class="brand">プラトーケアセンター涌波本店<br>ケアマネ説明用</div>
+    <div class="brand">プラトーケアセンター涌波本店</div>
     <div class="navlinks">
       <a href="#what">施設の内容</a>
       <a href="#fit">合う方</a>
@@ -136,7 +152,7 @@
     </div>
   </div>
 </nav>
-<div class="mobile-actions" aria-label="スマホ説明用の固定メニュー">
+<div class="mobile-actions" aria-label="メニュー">
   <a href="#what">内容</a>
   <a href="#price">料金</a>
   <a href="#contact">相談</a>
@@ -144,12 +160,12 @@
 
 <header class="hero">
   <div class="inner">
-    <span class="kicker">CARE MANAGER GUIDE</span>
-    <h1>スマホやiPadで見せながら、涌波本店を説明できるページ</h1>
-    <p>広い空間で、仲間と過ごしながら運動・入浴・昼食ができる金沢市涌波のデイサービスです。</p>
-    <div class="use-case">ケアマネさんはスマホで。事業所ではiPadや携帯で。ご本人・ご家族へその場で見せられます。</div>
+    <span class="kicker">金沢市涌波 ／ デイサービス</span>
+    <h1>広い空間で、仲間と過ごす一日を。<br>金沢市涌波のデイサービス</h1>
+    <p>運動・入浴・昼食・送迎まで。住み慣れた地域で、無理なく続けられる「通いの場」です。</p>
+    <div class="use-case">はじめての方も、まずは見学・体験から。ご本人もご家族も、気になることは何でもご相談ください。</div>
     <div class="actions">
-      <a class="btn btn-primary" href="#price">料金を見積もる</a>
+      <a class="btn btn-primary" href="#price">料金の目安を見る</a>
       <a class="btn btn-light" href="#what">どんな施設か見る</a>
       <a class="btn btn-call" href="tel:0762624556">電話する</a>
     </div>
@@ -162,25 +178,27 @@
       <div class="section-head">
         <div>
           <span class="eyebrow">MOVIE</span>
-          <h2 class="h2">まずは動画のように、雰囲気から伝える</h2>
-          <p>説明時は、細かい制度より先に「ここなら行けそう」と感じてもらうことを重視します。</p>
+          <h2 class="h2">まずは雰囲気から。涌波本店で過ごす一日</h2>
+          <p>「ここなら通えそう」と感じていただけたら嬉しいです。</p>
         </div>
       </div>
       <div class="video-panel">
         <div class="video-box">
-          <img src="images/voice-place.jpg" alt="広い空間で仲間と過ごす利用イメージ">
-          <div class="play"><span class="circle">▶</span><span>紹介動画 30〜45秒用</span></div>
+          <video class="video-el" controls preload="metadata" playsinline poster="images/voice-place.jpg">
+            <source src="images/wakunami-day-movie.mp4" type="video/mp4">
+            お使いの環境では動画を再生できません。
+          </video>
         </div>
         <div class="story">
-          <h3>動画で伝える順番</h3>
+          <h3>涌波本店で過ごせること</h3>
           <ol>
-            <li>広い空間で過ごせる</li>
-            <li>仲間と話す時間がある</li>
-            <li>体操や機能訓練に参加できる</li>
-            <li>昼食・入浴・送迎も相談できる</li>
-            <li>まずは見学・体験から始められる</li>
+            <li>広い空間でゆったり過ごせます</li>
+            <li>顔なじみの仲間と話す時間があります</li>
+            <li>体操や機能訓練に参加できます</li>
+            <li>昼食・入浴・送迎もご相談いただけます</li>
+            <li>まずは見学・体験から始められます</li>
           </ol>
-          <p class="note">実動画を作成したら、この枠に差し替えて使います。</p>
+          <p class="note">ご見学の際には、実際に過ごす様子もご覧いただけます。</p>
         </div>
       </div>
     </div>
@@ -191,7 +209,7 @@
       <div class="section-head">
         <div>
           <span class="eyebrow">WHAT WE DO</span>
-          <h2 class="h2">何をする施設か、3枚で説明</h2>
+          <h2 class="h2">涌波本店でできること</h2>
         </div>
       </div>
       <div class="image-grid">
@@ -253,6 +271,32 @@
         <div class="time-row"><b>午後</b><span>レクリエーション・脳トレ・趣味活動</span></div>
         <div class="time-row"><b>14:30</b><span>ご自宅までお送り</span></div>
       </div>
+    </div>
+  </section>
+
+  <section id="aki" style="background:var(--soft);">
+    <div class="inner">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">AVAILABILITY</span>
+          <h2 class="h2">施設・お風呂の空き状況</h2>
+          <p>今の空き状況の目安です。最新の状況は、お電話でもお気軽にご確認いただけます。</p>
+        </div>
+      </div>
+      <div class="akitbl-wrap">
+        <table class="akitbl">
+          <thead><tr><th>曜日</th><th>施設の空き</th><th>お風呂の空き</th></tr></thead>
+          <tbody>
+            <tr><th>月</th><td><span class="lvl ok">多数</span></td><td><span class="lvl few">1名</span></td></tr>
+            <tr><th>火</th><td><span class="lvl ok">多数</span></td><td><span class="lvl few">2名</span></td></tr>
+            <tr><th>水</th><td><span class="lvl ok">多数</span></td><td><span class="lvl ok">多数</span></td></tr>
+            <tr><th>木</th><td><span class="lvl ok">多数</span></td><td><span class="lvl few">3名</span></td></tr>
+            <tr><th>金</th><td><span class="lvl ok">多数</span></td><td><span class="lvl few">3名</span></td></tr>
+            <tr><th>土</th><td><span class="lvl ok">多数</span></td><td><span class="lvl ok">多数</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="aki-note"><span>※最新の空き状況はスタッフが随時更新します。</span><span>お電話でもお気軽にご確認ください。</span></p>
     </div>
   </section>
 
@@ -336,14 +380,13 @@
       <div class="contact-grid">
         <div>
           <span class="eyebrow" style="color:#bfe5f4;">CONTACT</span>
-          <h2 class="h2">見学・体験の相談へつなげる</h2>
-          <p>ご本人・ご家族への説明時に、このページをご利用ください。気になる方は見学や体験から相談できます。</p>
+          <h2 class="h2">まずは見学・体験から</h2>
+          <p>「合うかどうか試してみたい」「家族として相談したい」——どんなきっかけでも大丈夫です。お電話一本でお気軽にどうぞ。</p>
           <div class="phone"><a href="tel:0762624556">076-262-4556</a></div>
         </div>
         <div class="links-box">
-          <a href="wakunami.html">一般向けLPを開く</a>
+          <a href="wakunami.html">事業所の詳しい紹介を見る</a>
           <a href="見本_事業所HP.html#access">お問い合わせフォームを開く</a>
-          <a href="見本_事業所HP.html#aki">空き状況を見る</a>
         </div>
       </div>
     </div>
@@ -351,7 +394,7 @@
 </main>
 
 <footer>
-  プラトーケアセンター涌波本店 ケアマネ説明用ページ / 料金は目安です。正式な内容はお問い合わせください。
+  プラトーケアセンター涌波本店 / 料金は目安です。正式な内容はお問い合わせください。
 </footer>
 
 <script>
