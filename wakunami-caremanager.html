@@ -97,7 +97,12 @@
   .akitbl th,.akitbl td{padding:14px 8px;text-align:center;border-bottom:1px solid var(--line);}
   .akitbl thead th{background:var(--brand);color:#fff;font-size:16px;font-weight:800;}
   .akitbl tbody th{background:var(--soft);width:64px;color:var(--brand-dark);font-weight:800;font-size:18px;}
-  .akitbl tr:last-child th,.akitbl tr:last-child td{border-bottom:0;}
+	  .akitbl tr:last-child th,.akitbl tr:last-child td{border-bottom:0;}
+	  .code-table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:16px;}
+	  .code-table{width:100%;min-width:680px;border-collapse:collapse;}
+	  .code-table th,.code-table td{padding:13px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+	  .code-table th{background:var(--soft);color:var(--brand-dark);}
+	  .code-table tr:last-child th,.code-table tr:last-child td{border-bottom:0;}
   .lvl{display:inline-block;min-width:62px;padding:6px 16px;border-radius:20px;font-weight:800;font-size:16px;}
   .lvl.ok{background:#e3f3e8;color:#2E8B57;}
   .lvl.few{background:#fdf0d8;color:#b9842b;}
@@ -113,14 +118,27 @@
     .image-grid{grid-template-columns:1fr;}
   }
   @media(max-width:640px){
-    body{font-size:16px;padding-bottom:76px;}
+	    body{font-size:18px;padding-bottom:76px;}
     .inner{padding:0 20px;}
     section{padding:46px 0;}
     .brand{font-size:16px;}
     .hero{min-height:520px;}
     .hero .inner{padding-top:58px;padding-bottom:48px;}
-    .hero h1{font-size:29px;}
-    .hero p{font-size:17px;}
+	    .hero h1{font-size:29px;text-wrap:balance;word-break:auto-phrase;overflow-wrap:normal;}
+	    .h2{text-wrap:balance;word-break:auto-phrase;overflow-wrap:normal;}
+	    .hero p{font-size:17px;}
+	    #codes{scroll-margin-top:80px;}
+	    .code-table-wrap{overflow:visible;border:0;background:transparent;}
+	    .code-table{min-width:0;}
+	    .code-table,.code-table tbody,.code-table tr,.code-table td{display:block;width:100%;}
+	    .code-table thead{display:none;}
+	    .code-table tr{margin-bottom:12px;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff;}
+	    .code-table td{display:grid;grid-template-columns:128px minmax(0,1fr);gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);}
+	    .code-table td::before{color:var(--brand-dark);font-weight:900;white-space:nowrap;}
+	    .code-table td:nth-child(1)::before{content:"区分";}
+	    .code-table td:nth-child(2)::before{content:"内容";}
+	    .code-table td:nth-child(3)::before{content:"サービスコード";}
+	    .code-table tr:last-child td:not(:last-child){border-bottom:1px solid var(--line);}
     .use-case{font-size:14px;line-height:1.5;border-radius:12px;align-items:flex-start;}
     .actions .btn{width:100%;margin:0;}
     .h2{font-size:25px;}
@@ -148,6 +166,7 @@
       <a href="#fit">合う方</a>
       <a href="#day">1日の流れ</a>
       <a href="#price">料金</a>
+      <a href="#codes">サービスコード</a>
       <a class="cta" href="#contact">相談する</a>
     </div>
   </div>
@@ -300,7 +319,7 @@
     </div>
   </section>
 
-  <section id="price">
+	  <section id="price">
     <div class="inner">
       <div class="section-head">
         <div>
@@ -373,7 +392,21 @@
         </div>
       </div>
     </div>
-  </section>
+	  </section>
+
+	  <section id="codes" style="background:var(--soft);">
+	    <div class="inner">
+	      <div class="section-head"><div><span class="eyebrow">SERVICE CODES</span><h2 class="h2">主なサービスコード</h2><p>紹介・請求時の照合用です。実際の算定は個別のケアプランと算定状況によります。</p></div></div>
+	      <div class="code-table-wrap"><table class="code-table"><thead><tr><th>区分</th><th>内容</th><th>サービスコード</th></tr></thead><tbody>
+	        <tr><td>通所介護</td><td>3時間以上4時間未満／要介護1〜5</td><td>15 2241〜2245</td></tr>
+	        <tr><td>通所介護</td><td>5時間以上6時間未満／要介護1〜5</td><td>15 2341〜2345</td></tr>
+	        <tr><td>介護予防型</td><td>週1回程度／週2回程度</td><td>A6 1111／A6 1121</td></tr>
+	        <tr><td>基準緩和型</td><td>週1回程度／週2回程度</td><td>A6 1211／A6 1221</td></tr>
+	        <tr><td>主な加算・減算</td><td>入浴介助加算Ⅰ／個別機能訓練加算Ⅰイ／送迎減算</td><td>15 5301／15 5051／15 5612</td></tr>
+	      </tbody></table></div>
+	      <p class="note">根拠：厚生労働省の介護サービスコード表、金沢市総合事業サービスコード表（令和8年6月1日以降）。</p>
+	    </div>
+	  </section>
 
   <section id="contact" class="contact-band">
     <div class="inner">

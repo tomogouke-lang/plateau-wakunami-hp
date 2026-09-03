@@ -165,6 +165,7 @@
     section{padding:50px 0;} .hero h1{font-size:36px;}
   }
   @media(max-width:620px){
+    h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;text-wrap:balance;}
     .svc{grid-template-columns:1fr;}
     .gallery{grid-template-columns:1fr 1fr;}
     .hero{min-height:440px;} .hero h1{font-size:29px;} .hero p{font-size:16px;}
@@ -320,8 +321,9 @@ window.FACILITY = {
     <a class="link" href="#voice">利用例</a>
     <a class="link" href="#faq">FAQ</a>
     <a class="link" href="#guide">案内</a>
-    <a class="link" href="#aki">空き状況</a>
-    <a class="link" href="#access">アクセス</a>
+	    <a class="link" href="#aki">空き状況</a>
+	    <a class="link" href="wakunami-caremanager.html">ケアマネジャー向け</a>
+	    <a class="link" href="#access">アクセス</a>
     <a class="link contact-link" href="#access">お問い合わせ</a>
   </span>
 </div></nav>
@@ -331,8 +333,9 @@ window.FACILITY = {
     <span class="kicker"><span data-bind="serviceType"></span>／<span data-bind="city"></span></span>
     <h1 data-bind="heroCatch"></h1>
     <p data-bind="heroLead"></p>
-    <a class="btn btn-main" href="#access">見学・体験のお問い合わせ</a>
-    <a class="btn btn-ghost" href="#aki">空き状況を見る</a>
+	    <a class="btn btn-main" href="#access">見学・体験のお問い合わせ</a>
+	    <a class="btn btn-ghost" href="#aki">空き状況を見る</a>
+	    <a class="btn btn-ghost" href="wakunami-caremanager.html">ケアマネジャー向け情報</a>
   </div>
 </header>
 
